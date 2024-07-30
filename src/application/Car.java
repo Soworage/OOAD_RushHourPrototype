@@ -6,10 +6,10 @@ public class Car {
     private int xPosition;
     private int yPosition;
     private Direction direction;
-    private double length;
+    private int length;
 
     // Konstruktor
-    public Car(int xPosition, int yPosition, Direction direction, double length) {
+    public Car(int xPosition, int yPosition, Direction direction, int length) {
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.direction = direction;
@@ -29,7 +29,7 @@ public class Car {
         return direction;
     }
 
-    public double getLength() {
+    public int getLength() {
         return length;
     }
 
@@ -46,7 +46,7 @@ public class Car {
         this.direction = direction;
     }
 
-    public void setLength(double length) {
+    public void setLength(int length) {
         this.length = length;
     }
 

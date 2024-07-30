@@ -1,6 +1,6 @@
 package application;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // Klasse für das Spielfeld
@@ -9,12 +9,14 @@ public class Board {
     private int width;
     private int height;
     private List<Car> cars;
-
+    private Car[][] carPositions;
     // Konstruktor
-    public Board(int width, int height) {
+    public Board(int width, int height, List<Car> carsToAdd) {
         this.width = width;
         this.height = height;
-        this.cars = new ArrayList<>();
+        this.cars = carsToAdd;
+        this.carPositions = new Car[width][height];
+        fillArray();
     }
 
     // Getter für die Breite
@@ -37,6 +39,29 @@ public class Board {
         }
     }
 
+    private void fillArray(){
+        // Setze das Array auf null (Standardwert für Objekte)
+        for (int i = 0; i < width; i++) {
+            Arrays.fill(carPositions[i], null);
+        }
+
+        for (Car car : cars) {
+            int x = car.getXPosition();
+            int y = car.getYPosition();
+            Direction direction = car.getDirection();
+            int length = car.getLength();
+
+            // Fülle das Array basierend auf der Richtung des Autos
+            for (int i = 0; i < length; i++) {
+                if (direction == Direction.HORIZONTAL) {
+                    carPositions[y][x + i] = car; // Setze das Auto an der entsprechenden Position
+                } else if (direction == Direction.VERTICAL) {
+                    carPositions[y + i][x] = car; // Setze das Auto an der entsprechenden Position
+                }
+            }
+        }
+    }
+
     // Methode zum Entfernen eines Fahrzeugs
     public void removeCar(Car car) {
         cars.remove(car);
@@ -46,6 +71,13 @@ public class Board {
         if(isValidPosition(car)){
             //.. move car
         }
+    }
+
+    public Car getCarAt(int x, int y){
+        if(carPositions[x][y] != null){
+            return carPositions[x][y];
+        }
+        return null;
     }
 
     // Methode zur Überprüfung der Gültigkeit der Fahrzeugposition
