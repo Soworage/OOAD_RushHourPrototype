@@ -12,7 +12,6 @@ import javafx.scene.layout.GridPane;
 
 public class GameController {
 
-
     private static final int GRID_SIZE = 6;  // Beispielgröße
     private static final int RECT_SIZE = 100; // Beispielgröße
     private Board board;
