@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="added javafx menus, added menu transition, added gamesettings, added example of board creation">
-      <change beforePath="$PROJECT_DIR$/bin/application/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/BoardManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/BoardManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Direction.class" afterDir="false" />
+    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="fix?">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/application/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/GameSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/GameSettings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,15 +45,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/schol/Downloads/openjfx-22.0.2_windows-x64_bin-sdk/javafx-sdk-22.0.2/lib",
+    "last_opened_file_path": "C:/Users/schol/Desktop/OOAD_RushHourPrototype/src/lib/javafx-sdk-22.0.2/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15527344",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -99,7 +98,8 @@
       <updated>1722369170905</updated>
       <workItem from="1722369171947" duration="10374000" />
       <workItem from="1722443415973" duration="55000" />
-      <workItem from="1722443893451" duration="488000" />
+      <workItem from="1722443893451" duration="1039000" />
+      <workItem from="1722444949415" duration="570000" />
     </task>
     <task id="LOCAL-00001" summary="added javafx menus, added menu transition, added gamesettings, added example of board creation">
       <option name="closed" value="true" />
@@ -109,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722380346391</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix?">
+      <option name="closed" value="true" />
+      <created>1722444500050</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722444500050</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +125,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added javafx menus, added menu transition, added gamesettings, added example of board creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added javafx menus, added menu transition, added gamesettings, added example of board creation" />
+    <MESSAGE value="fix?" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix?" />
   </component>
 </project>
