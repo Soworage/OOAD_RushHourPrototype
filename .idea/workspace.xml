@@ -4,38 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="nur das zurueck ins hauptmenu">
+    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="bugs gefixt diffulty angepasst, level erstellt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RushHourPrototype.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RushHourPrototype.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/UserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/BoardManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/Car.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/Color.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/Difficulty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/GameController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/GameLauncher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/GameSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/HighscoreEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/HighscoreTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/MenuType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/UserInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/UserStatistic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/application.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/colorSchemeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/colorSchemeMenu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/diffSelectController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/difficultyMenu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/gameMenu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/mainMenu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/mainMenuController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/BoardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/BoardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/CarObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/CarObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Difficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Difficulty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GameLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/GameLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/GameSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/HighscoreEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/HighscoreEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/HighscoreTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/HighscoreTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/MenuType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/MenuType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/UserStatistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/UserStatistic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/colorSchemeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/colorSchemeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/colorSchemeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/colorSchemeMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/diffSelectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/diffSelectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/difficultyMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/difficultyMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/gameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/gameMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/mainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/mainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/view/gameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/gameMenu.fxml" afterDir="false" />
     </list>
     <list id="d3492e14-08c0-4ee6-ab12-9b164d1f3d27" name="Changes by alexm" comment="" />
     <list id="f9a056dc-67e8-4812-a431-2deb8a1d649e" name="Changes by henze" comment="" />
@@ -66,12 +63,12 @@
     &quot;assignee&quot;: &quot;alexbx24&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Soworage/OOAD_RushHourPrototype.git",
-    "accountId": "82c8722c-766f-4f7c-801a-beec9ce9f5e0"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Soworage/OOAD_RushHourPrototype.git&quot;,
+    &quot;accountId&quot;: &quot;d78a55f7-8d49-48a4-8c8f-b446f707275a&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/application/BoardManager.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -96,16 +93,16 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/henze/OneDrive/Desktop/SoSe24/Objektorientierte_Analyse_und_Design_OOAD/Hausarbeit/Projekt/OOAD_RushHourPrototype/src/lib/javafx-sdk-22.0.2/lib/javafx.web.jar",
+    "last_opened_file_path": "C:/Users/alexm/OneDrive/Dokumente/Uni/6.Semester/Hausarbeiten/OOAD/OOAD_RushHourPrototype",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15527344",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -116,7 +113,7 @@
       <module name="RushHourPrototype" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="application.controller.*" />
+          <option name="PATTERN" value="application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,9 +151,6 @@
       <workItem from="1722502829674" duration="1242000" />
       <workItem from="1722504149880" duration="58000" />
       <workItem from="1722504214931" duration="1436000" />
-      <workItem from="1722526668351" duration="487000" />
-      <workItem from="1722527166660" duration="77000" />
-      <workItem from="1722527249506" duration="2910000" />
     </task>
     <task id="LOCAL-00001" summary="added javafx menus, added menu transition, added gamesettings, added example of board creation">
       <option name="closed" value="true" />
@@ -190,15 +184,7 @@
       <option name="project" value="LOCAL" />
       <updated>1722505395875</updated>
     </task>
-    <task id="LOCAL-00005" summary="nur das zurueck ins hauptmenu">
-      <option name="closed" value="true" />
-      <created>1722528866404</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1722528866404</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,11 +206,27 @@
     <MESSAGE value="fix?" />
     <MESSAGE value="added javafx libary" />
     <MESSAGE value="bugs gefixt diffulty angepasst, level erstellt" />
-    <MESSAGE value="nur das zurueck ins hauptmenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="nur das zurueck ins hauptmenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugs gefixt diffulty angepasst, level erstellt" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/application/GameController.java</url>
+          <line>272</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/application/GameController.java</url>
+          <line>259</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/application/controller/GameController.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
