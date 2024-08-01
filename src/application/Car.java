@@ -1,5 +1,10 @@
 package application;
 
+import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
+import java.util.List;
+
 // Klasse für das Fahrzeug
 public class Car {
     // Exemplarvariablen
@@ -7,13 +12,22 @@ public class Car {
     private int yPosition;
     private Direction direction;
     private int length;
+    private Color carColor;
+    private List<CarObserver> observers = new ArrayList<>();
+
 
     // Konstruktor
-    public Car(int xPosition, int yPosition, Direction direction, int length) {
+    public Car(int xPosition, int yPosition, Direction direction, int length, Color carColor) {
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.direction = direction;
+        this.carColor = carColor;
         this.length = length;
+
+    }
+
+    public Color getCarColor() {
+        return carColor;
     }
 
     // Getter-Methoden

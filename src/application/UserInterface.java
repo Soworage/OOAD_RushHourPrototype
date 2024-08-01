@@ -24,6 +24,7 @@ public class UserInterface {
 
     public UserInterface(Stage primaryStage) {
         this.primaryStage = primaryStage;
+        this.boardManager = new BoardManager();
     }
 
    /* private void initializeUi(){
@@ -94,6 +95,10 @@ public class UserInterface {
 
             if(loader.getController() instanceof colorSchemeController){
                 ((colorSchemeController) loader.getController()).setUserInterface(this);
+            }
+
+            if(loader.getController() instanceof GameController){
+                ((GameController) loader.getController()).setBoardManager(this.boardManager);
             }
 
             primaryStage.setScene(scene);
