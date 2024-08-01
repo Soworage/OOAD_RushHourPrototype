@@ -99,6 +99,7 @@ public class UserInterface {
 
             if(loader.getController() instanceof GameController){
                 ((GameController) loader.getController()).setBoardManager(this.boardManager);
+                ((GameController) loader.getController()).setUserInterface(this);
             }
 
             primaryStage.setScene(scene);

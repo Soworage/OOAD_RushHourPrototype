@@ -36,6 +36,16 @@ public class GameController implements CarObserver {
         this.boardManager = boardManager;
     }
 
+    private UserInterface userInterface;
+
+    public UserInterface getUserInterface() {
+        return userInterface;
+    }
+    public void setUserInterface(UserInterface userInterface) {
+        this.userInterface = userInterface;
+    }
+
+
     @FXML
     private Button backToMenuButton;
 
@@ -51,7 +61,7 @@ public class GameController implements CarObserver {
 
     @FXML
     void backToMenuButton(ActionEvent event) {
-
+                getUserInterface().showMenu(MenuType.MAIN_MENU);
     }
 
     @FXML
