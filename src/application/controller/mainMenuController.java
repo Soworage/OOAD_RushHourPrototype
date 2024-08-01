@@ -1,5 +1,7 @@
-package application;
+package application.controller;
 
+import application.model.MenuType;
+import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

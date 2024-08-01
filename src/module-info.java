@@ -7,4 +7,6 @@ module RushHourPrototype {
 	requires java.desktop;
 	requires jdk.xml.dom;
 	opens application to javafx.graphics, javafx.fxml;
+    opens application.controller to javafx.fxml, javafx.graphics;
+	opens application.model to javafx.fxml, javafx.graphics;
 }

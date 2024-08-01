@@ -35,5 +35,6 @@
         <jarDirectory url="file://$MODULE_DIR$/../../javafx-sdk-22.0.1/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="javafx-swt" level="project" />
   </component>
 </module>

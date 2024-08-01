@@ -1,4 +1,4 @@
-package application;
+package application.model;
 
 public enum MenuType {
     MAIN_MENU,

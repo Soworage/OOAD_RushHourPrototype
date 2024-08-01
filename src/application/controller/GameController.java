@@ -1,15 +1,15 @@
-package application;
+package application.controller;
 
+import application.model.*;
+import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.GridPane;
-import org.w3c.dom.css.Rect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
