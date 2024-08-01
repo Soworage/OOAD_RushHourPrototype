@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="added javafx libary">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="bugs gefixt diffulty angepasst, level erstellt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RushHourPrototype.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RushHourPrototype.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/application/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/BoardManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/BoardManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/BoardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/BoardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/GameSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/diffSelectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/diffSelectController.java" afterDir="false" />
     </list>
     <list id="d3492e14-08c0-4ee6-ab12-9b164d1f3d27" name="Changes by alexm" comment="" />
     <list id="f9a056dc-67e8-4812-a431-2deb8a1d649e" name="Changes by henze" comment="" />
@@ -48,12 +39,15 @@
     &quot;assignee&quot;: &quot;alexbx24&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Soworage/OOAD_RushHourPrototype.git&quot;,
-    &quot;accountId&quot;: &quot;eb72c676-c930-417b-af26-72551527ac1e&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Soworage/OOAD_RushHourPrototype.git",
+    "accountId": "d78a55f7-8d49-48a4-8c8f-b446f707275a"
   }
-}</component>
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/application/BoardManager.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -132,7 +126,7 @@
       <workItem from="1722502799709" duration="25000" />
       <workItem from="1722502829674" duration="1242000" />
       <workItem from="1722504149880" duration="58000" />
-      <workItem from="1722504214931" duration="864000" />
+      <workItem from="1722504214931" duration="1436000" />
     </task>
     <task id="LOCAL-00001" summary="added javafx menus, added menu transition, added gamesettings, added example of board creation">
       <option name="closed" value="true" />
@@ -158,17 +152,37 @@
       <option name="project" value="LOCAL" />
       <updated>1722445580758</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="bugs gefixt diffulty angepasst, level erstellt">
+      <option name="closed" value="true" />
+      <created>1722505395875</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722505395875</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added javafx menus, added menu transition, added gamesettings, added example of board creation" />
     <MESSAGE value="fix?" />
     <MESSAGE value="added javafx libary" />
-    <option name="LAST_COMMIT_MESSAGE" value="added javafx libary" />
+    <MESSAGE value="bugs gefixt diffulty angepasst, level erstellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugs gefixt diffulty angepasst, level erstellt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -179,34 +193,9 @@
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/Board.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/Board.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/application/GameController.java</url>
           <line>259</line>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/Board.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/Board.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/Board.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

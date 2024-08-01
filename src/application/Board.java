@@ -45,6 +45,9 @@ public class Board {
 
         car.setXPosition(x);
         car.setYPosition(y);
+
+        notifyObservers();
+
     }
 
     // Getter für die Breite
@@ -110,11 +113,7 @@ public class Board {
         cars.remove(car);
     }
 
-    public void moveCar(Car car){
-        if(isValidPosition(car)){
-            //.. move car
-        }
-    }
+
 
     public Car getCarAt(int x, int y){
         if(x >= 0 && x < width && y >= 0 && y < height){
@@ -131,12 +130,14 @@ public class Board {
         int yPos = car.getYPosition();
         double length = car.getLength();
 
+
         // Überprüfen, ob das Fahrzeug innerhalb der Grenzen des Spielfeldes liegt
         if (xPos < 0 || yPos < 0 || xPos + length > width || yPos + length > height) {
             return false;
         }
         return true;
     }
+
 
     // Methode zur Darstellung des Spielfelds als String
     @Override
