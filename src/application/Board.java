@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,13 +11,40 @@ public class Board {
     private int height;
     private List<Car> cars;
     private Car[][] carPositions;
+    List<CarObserver> observers;
+
     // Konstruktor
     public Board(int width, int height, List<Car> carsToAdd) {
         this.width = width;
         this.height = height;
         this.cars = carsToAdd;
         this.carPositions = new Car[width][height];
+        this.observers = new ArrayList<>();
         fillArray();
+    }
+
+    public void moveCar(Car car, int x, int y){
+        //search car in array
+
+        for(int i=0; i<car.getLength(); i++){
+            if(car.getDirection() == Direction.HORIZONTAL){
+                carPositions[car.getYPosition()][car.getXPosition()+i] = null;
+            } else if(car.getDirection() == Direction.VERTICAL){
+                carPositions[car.getYPosition()+i][car.getXPosition()] = null;
+            }
+        }
+
+        //build into array again
+        for(int i=0; i<car.getLength(); i++){
+            if(car.getDirection() == Direction.HORIZONTAL){
+                carPositions[y][x+i] = car;
+            } else if(car.getDirection() == Direction.VERTICAL){
+                carPositions[y+i][x] = car;
+            }
+        }
+
+        car.setXPosition(x);
+        car.setYPosition(y);
     }
 
     // Getter für die Breite
@@ -29,6 +57,16 @@ public class Board {
         return height;
     }
 
+    public void subscribeToUpdates(CarObserver carObserver){
+        observers.add(carObserver);
+    }
+
+    public void notifyObservers(){
+        for(CarObserver carObserver : observers){
+            carObserver.update();
+        }
+    }
+
     // Methode zum Hinzufügen eines Fahrzeugs
     public void addCar(Car car) {
         // Überprüfen, ob das Fahrzeug innerhalb des Spielfeldes liegt
@@ -37,6 +75,11 @@ public class Board {
         } else {
             System.out.println("Fahrzeugposition außerhalb des Spielfelds.");
         }
+    }
+
+
+    public void debugFunction(){
+        notifyObservers();
     }
 
     private void fillArray(){
@@ -74,8 +117,10 @@ public class Board {
     }
 
     public Car getCarAt(int x, int y){
-        if(carPositions[x][y] != null){
-            return carPositions[x][y];
+        if(x >= 0 && x < width && y >= 0 && y < height){
+            if(carPositions[x][y] != null) {
+                return carPositions[x][y];
+            }
         }
         return null;
     }
