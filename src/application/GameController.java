@@ -57,11 +57,11 @@ public class GameController implements CarObserver {
     @FXML
     void initialize() {
         BoardManager boardManager1 = new BoardManager();
-        board = boardManager1.getEasyBoards().getFirst();
+        Difficulty selectedDifficulty = GameSettings.getInstance().getDifficulty();
+        board = boardManager1.giveBoardToDiff(selectedDifficulty);
         board.subscribeToUpdates(this);
         populateGridPane();
     }
-
 
     private void populateGridPane() {
         for (int row = 0; row < GRID_SIZE; row++) {

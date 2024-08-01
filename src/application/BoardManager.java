@@ -14,6 +14,7 @@ public class BoardManager {
     public BoardManager() {
         createEasyBord();
         createMediumBord();
+        createHardBoard();
     }
 
     public List<Board> getEasyBoards() {
@@ -38,7 +39,7 @@ public class BoardManager {
                 new Car(4, 1, Direction.HORIZONTAL, 2, Color.BLUE),
                 new Car(3, 2, Direction.HORIZONTAL, 2, Color.RED),
                 new Car(5, 2, Direction.VERTICAL, 2, Color.PINK),
-                new Car(0, 3, Direction.VERTICAL, 2, Color.DARKBLUE),
+                new Car(0, 3, Direction.VERTICAL, 2, Color.BLACK),
                 new Car(1, 3, Direction.HORIZONTAL, 3, Color.MAGENTA),
                 new Car(1, 4, Direction.HORIZONTAL, 3, Color.BLUE),
                 new Car(4, 4, Direction.HORIZONTAL, 2, Color.GREEN),
@@ -71,6 +72,29 @@ public class BoardManager {
 
         Board board = new Board(6,6, cars);
         mediumBoards.add(board);
+    }
+
+    private void createHardBoard(){
+        //create example board
+        List<Car> cars = new ArrayList<>();
+        cars = List.of(new Car[]{
+                new Car(0, 0, Direction.VERTICAL, 2, Color.OLIVE),
+                new Car(1, 0, Direction.HORIZONTAL, 3, Color.YELLOW),
+                new Car(4, 0, Direction.VERTICAL, 2, Color.ORANGE),
+                new Car(5, 0, Direction.VERTICAL, 2, Color.LIGHTBLUE),
+                new Car(0, 2, Direction.HORIZONTAL, 2, Color.RED),
+                new Car(2, 1, Direction.VERTICAL, 2, Color.PINK),
+                new Car(3, 2, Direction.VERTICAL, 3, Color.PURPLE),
+                new Car(2, 3, Direction.VERTICAL, 2, Color.DARKBLUE),
+                new Car(4, 3, Direction.HORIZONTAL, 2, Color.DARKGREEN),
+                new Car(0, 4, Direction.HORIZONTAL, 2, Color.BLACK),
+                new Car(3, 5, Direction.HORIZONTAL, 2, Color.DARKCYAN),
+
+
+        });
+
+        Board board = new Board(6,6, cars);
+        hardBoards.add(board);
     }
 
     public Board giveBoardToDiff(Difficulty difficulty){

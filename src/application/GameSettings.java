@@ -2,7 +2,7 @@ package application;
 
 public class GameSettings {
     private static GameSettings instance;
-    private Difficulty difficulty;
+    private  Difficulty difficulty;
     private Color colorSetting;
 
     private GameSettings() {

@@ -45,4 +45,6 @@ public class diffSelectController {
         getUserInterface().showMenu(MenuType.COLORSCHEME_MENU);
     }
 
+
+
 }
