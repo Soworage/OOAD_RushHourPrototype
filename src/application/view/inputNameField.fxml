@@ -15,5 +15,6 @@
          </font>
       </Label>
       <Button fx:id="buttonSave" layoutX="236.0" layoutY="119.0" mnemonicParsing="false" onAction="#onSaveButtonPressed" prefHeight="42.0" prefWidth="107.0" text="Speichern" />
+      <Button fx:id="backToMainMenuButton" layoutX="35.0" layoutY="119.0" mnemonicParsing="false" onAction="#onPressBackToMainMenuButton" prefHeight="42.0" prefWidth="137.0" text="Back to Main Menu" />
    </children>
 </AnchorPane>

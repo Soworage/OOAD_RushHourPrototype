@@ -60,4 +60,11 @@ public class InputNameController {
         highscoreTable.addEntry(entry);
         userInterface.showMenu(MenuType.HIGHSCORE_MENU);
     }
+    @FXML
+    void onPressBackToMainMenuButton(ActionEvent event) {
+        userInterface.showMenu(MenuType.MAIN_MENU);
+    }
+
+
+
 }
