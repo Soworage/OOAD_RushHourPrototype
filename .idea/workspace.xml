@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="fixed bugs">
+    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="refactoring">
+      <change afterPath="$PROJECT_DIR$/src/application/controller/highScoreController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application/controller/inputNameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application/controller/statisticsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application/view/highScoreTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application/view/inputNameField.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application/view/statisticsMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/model/MenuType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/MenuType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/view/colorSchemeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/colorSchemeMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/view/difficultyMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/difficultyMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/view/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/mainMenu.fxml" afterDir="false" />
     </list>
     <list id="d3492e14-08c0-4ee6-ab12-9b164d1f3d27" name="Changes by alexm" comment="" />
     <list id="f9a056dc-67e8-4812-a431-2deb8a1d649e" name="Changes by henze" comment="" />
@@ -167,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722532340088</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactoring">
+      <option name="closed" value="true" />
+      <created>1722533397691</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722533397691</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +206,8 @@
     <MESSAGE value="added javafx libary" />
     <MESSAGE value="bugs gefixt diffulty angepasst, level erstellt" />
     <MESSAGE value="fixed bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
