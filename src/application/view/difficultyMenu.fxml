@@ -13,6 +13,7 @@
             <Button fx:id="easyButton" layoutX="205.0" layoutY="55.0" mnemonicParsing="false" onAction="#onClickEasy" prefHeight="69.0" prefWidth="118.0" text="Easy" />
             <Button fx:id="mediumButton" layoutX="205.0" layoutY="137.0" mnemonicParsing="false" onAction="#onClickMedium" prefHeight="69.0" prefWidth="118.0" text="Medium" />
             <Button fx:id="hardButton" layoutX="205.0" layoutY="220.0" mnemonicParsing="false" onAction="#onClickHard" prefHeight="69.0" prefWidth="118.0" text="Hard" />
+            <Button fx:id="mainMenuButton" layoutX="373.0" layoutY="13.0" mnemonicParsing="false" onAction="#onMainMenuButtonClick" prefHeight="39.0" prefWidth="140.0" text="Back to Main Menu" />
          </children>
       </AnchorPane>
    </children>

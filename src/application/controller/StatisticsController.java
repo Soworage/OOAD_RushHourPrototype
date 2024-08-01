@@ -57,4 +57,10 @@ public class StatisticsController {
     void onButtonPressYes(ActionEvent event) {
         userInterface.showMenu(MenuType.INPUTNAME_MENU);
     }
+    @FXML
+    void onButtonPressMainMenu(ActionEvent event) {
+        userInterface.showMenu(MenuType.MAIN_MENU);
+    }
+
+
 }

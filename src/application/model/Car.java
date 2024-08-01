@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Car {
+public class Car implements  Cloneable {
 
     private int xPosition;
     private int yPosition;
@@ -61,5 +61,15 @@ public class Car {
     public String toString() {
         return "Car [xPosition=" + xPosition + ", yPosition=" + yPosition
                 + ", direction=" + direction + ", length=" + length + "]";
+    }
+
+    @Override
+    public Car clone() {
+        try {
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return (Car) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

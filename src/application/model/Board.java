@@ -4,21 +4,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Board {
+public class Board implements Cloneable {
 
     private int width;
     private int height;
     private List<Car> cars;
     private Car[][] carPositions;
     private List<CarObserver> observers;
+    private int boardId;
 
-    public Board(int width, int height, List<Car> carsToAdd) {
+    public Board(int boardId,int width, int height, List<Car> carsToAdd) {
+        this.boardId = boardId;
         this.width = width;
         this.height = height;
         this.cars = carsToAdd;
         this.carPositions = new Car[width][height];
         this.observers = new ArrayList<>();
         fillCarPositions();
+    }
+
+    public int getBoardId() {
+        return boardId;
     }
 
     public boolean moveCar(Car car, int x, int y) {
@@ -31,6 +37,16 @@ public class Board {
             return true;
         }
         return false;
+    }
+
+    public void makeReadyForUse(){
+        for(int i=0; i<height; i++){
+            for(int j=0; j<width; j++){
+                carPositions[i][j] = null;
+            }
+        }
+
+        fillCarPositions();
     }
 
     public int getWidth() {
@@ -94,6 +110,8 @@ public class Board {
         }
     }
 
+
+
     private void clearCarPosition(Car car) {
         for (int i = 0; i < car.getLength(); i++) {
             if (car.getDirection() == Direction.HORIZONTAL) {
@@ -135,5 +153,21 @@ public class Board {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public Board clone() {
+        try {
+            Board clone = (Board) super.clone();
+            clone.cars = new ArrayList<>(this.cars.size());
+
+            for(Car car : this.cars){
+                clone.cars.add(car.clone());
+            }
+
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

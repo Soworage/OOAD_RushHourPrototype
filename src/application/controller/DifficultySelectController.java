@@ -46,4 +46,10 @@ public class DifficultySelectController {
         GameSettings.getInstance().setDifficulty(Difficulty.MEDIUM);
         userInterface.showMenu(MenuType.COLORSCHEME_MENU);
     }
+
+    @FXML
+    void onMainMenuButtonClick(ActionEvent event) {
+        userInterface.showMenu(MenuType.MAIN_MENU);
+    }
+
 }

@@ -6,6 +6,15 @@ public class UserStatistic {
     private int moveCount;
     private int seconds;
     private String name;
+    private Board selectedBoard;
+
+    public Board getSelectedBoard() {
+        return selectedBoard;
+    }
+
+    public void setSelectedBoard(Board selectedBoard) {
+        this.selectedBoard = selectedBoard;
+    }
 
     private UserStatistic() {
     }
@@ -15,6 +24,18 @@ public class UserStatistic {
             instance = new UserStatistic();
         }
         return instance;
+    }
+
+    private void resetMoveCount(){
+        this.moveCount = 0;
+    }
+
+    private void resetSeconds(){
+        this.seconds = 0;
+    }
+
+    private void resetSelectedBoard(){
+        this.selectedBoard = null;
     }
 
     public String getName() {
@@ -39,5 +60,14 @@ public class UserStatistic {
 
     public void addSeconds() {
         seconds++;
+    }
+
+    public void setToDefault(){
+        setName("");
+        setSelectedBoard(null);
+        resetMoveCount();
+        resetSeconds();
+        resetSelectedBoard();
+        System.out.println("Reset of session confirmed");
     }
 }

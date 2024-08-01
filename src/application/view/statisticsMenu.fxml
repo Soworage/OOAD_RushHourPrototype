@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.StatisticsController">
    <children>
-      <Label layoutX="29.0" layoutY="27.0" text="Statistik">
+      <Label layoutX="29.0" layoutY="27.0" text="Level abgeschlossen!">
          <font>
             <Font size="20.0" />
          </font>
@@ -39,5 +39,6 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Button fx:id="backToMainMenuButton" layoutX="447.0" layoutY="24.0" mnemonicParsing="false" onAction="#onButtonPressMainMenu" prefHeight="36.0" prefWidth="139.0" text="Back to Main Menu" />
    </children>
 </AnchorPane>

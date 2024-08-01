@@ -2,13 +2,19 @@ package application.model;
 
 import javafx.scene.paint.Color;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BoardManager {
 
     private final List<Board> easyBoards = new ArrayList<>();
     private final List<Board> mediumBoards = new ArrayList<>();
     private final List<Board> hardBoards = new ArrayList<>();
+
+    private final Map<Integer, HighscoreTable> highScoreTablesForEasyBoards = new HashMap<>();
+    private final Map<Integer, HighscoreTable> highScoreTablesForMediumBoards = new HashMap<>();
+    private final Map<Integer, HighscoreTable> highScoreTablesForHardBoards = new HashMap<>();
 
     public BoardManager() {
         createEasyBoard();
@@ -28,6 +34,20 @@ public class BoardManager {
         return hardBoards;
     }
 
+
+    public HighscoreTable getHighScoreTableForBoard(int boardID, Difficulty difficulty) {
+        System.out.println("Got a request for Board id "  + boardID + "and diff " + difficulty);
+        switch(difficulty) {
+            case EASY:
+                return highScoreTablesForEasyBoards.get(boardID);
+            case MEDIUM:
+                return highScoreTablesForMediumBoards.get(boardID);
+            case HARD:
+                return highScoreTablesForHardBoards.get(boardID);
+        }
+        return null;
+    }
+
     private void createEasyBoard() {
         List<Car> cars = List.of(
                 new Car(0, 0, Direction.VERTICAL, 3, Color.YELLOW),
@@ -42,8 +62,13 @@ public class BoardManager {
                 new Car(4, 4, Direction.HORIZONTAL, 2, Color.GREEN),
                 new Car(0, 5, Direction.HORIZONTAL, 3, Color.LIGHTGREEN)
         );
-        Board board = new Board(6, 6, cars);
+
+        //create highScoreTable for Board
+        HighscoreTable highscoreTable = new HighscoreTable();
+        highScoreTablesForEasyBoards.put(easyBoards.size(), highscoreTable);
+        Board board = new Board(easyBoards.size(),6, 6, cars);
         easyBoards.add(board);
+
     }
 
     private void createMediumBoard() {
@@ -60,7 +85,9 @@ public class BoardManager {
                 new Car(4, 4, Direction.VERTICAL, 2, Color.BROWN),
                 new Car(1, 5, Direction.HORIZONTAL, 2, Color.LIGHTYELLOW)
         );
-        Board board = new Board(6, 6, cars);
+        HighscoreTable highscoreTable = new HighscoreTable();
+        highScoreTablesForMediumBoards.put(mediumBoards.size(), highscoreTable);
+        Board board = new Board(mediumBoards.size(),6, 6, cars);
         mediumBoards.add(board);
     }
 
@@ -78,20 +105,22 @@ public class BoardManager {
                 new Car(0, 4, Direction.HORIZONTAL, 2, Color.BLACK),
                 new Car(3, 5, Direction.HORIZONTAL, 2, Color.DARKCYAN)
         );
-        Board board = new Board(6, 6, cars);
+        HighscoreTable highscoreTable = new HighscoreTable();
+        highScoreTablesForHardBoards.put(hardBoards.size(), highscoreTable);
+        Board board = new Board(hardBoards.size(),6, 6, cars);
         hardBoards.add(board);
     }
 
     public Board giveBoardToDifficulty(Difficulty difficulty) {
         switch (difficulty) {
             case EASY -> {
-                return easyBoards.get(0);
+                return easyBoards.get(0).clone();
             }
             case MEDIUM -> {
-                return mediumBoards.get(0);
+                return mediumBoards.get(0).clone();
             }
             case HARD -> {
-                return hardBoards.get(0);
+                return hardBoards.get(0).clone();
             }
         }
         return null;

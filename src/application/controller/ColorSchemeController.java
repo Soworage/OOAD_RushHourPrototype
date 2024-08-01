@@ -38,4 +38,10 @@ public class ColorSchemeController {
     void onClickConfirm(ActionEvent event) {
         userInterface.showMenu(MenuType.GAME_MENU);
     }
+
+    @FXML
+    void onClickMainMenuButton(ActionEvent event) {
+        userInterface.showMenu(MenuType.MAIN_MENU);
+    }
+
 }

@@ -9,6 +9,10 @@ public class GameSettings {
     private GameSettings() {
     }
 
+
+
+
+
     public static GameSettings getInstance() {
         if (instance == null) {
             instance = new GameSettings();
@@ -33,5 +37,8 @@ public class GameSettings {
     }
 
     public void resetToDefault() {
+        this.difficulty = null;
+        this.colorSetting = null;
+        System.out.println("GameSettings reset confirmed");
     }
 }

@@ -41,6 +41,7 @@ public class GameController implements CarObserver {
     private Map<Car, List<Rectangle>> carRectangleMap = new HashMap<>();
     private List<Rectangle> selectedRectangleList = new ArrayList<>();
     private UserStatistic statistic;
+    private Timeline secondsCounter;
 
     private UserInterface userInterface;
 
@@ -60,6 +61,7 @@ public class GameController implements CarObserver {
         this.userInterface = userInterface;
     }
 
+
     @FXML
     private Button backToMenuButton;
 
@@ -74,18 +76,25 @@ public class GameController implements CarObserver {
 
     @FXML
     void backToMenuButton(ActionEvent event) {
+        secondsCounter.stop();
         userInterface.showMenu(MenuType.MAIN_MENU);
     }
 
-    @FXML
-    void initialize() {
-        BoardManager boardManager = new BoardManager();
-        Difficulty selectedDifficulty = GameSettings.getInstance().getDifficulty();
-        board = boardManager.giveBoardToDifficulty(selectedDifficulty);
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
+    public void postInit(){
+        //get board
+        Difficulty selectedDifficulty = GameSettings.getInstance().getDifficulty();
+        board = getBoardManager().giveBoardToDifficulty(selectedDifficulty);
+        //make sure board is cleaned
+        board.makeReadyForUse();
+        //save to userstats for session saving
+        UserStatistic.getInstance().setSelectedBoard(board);
+
+
+        //create timeline for time counting
+        secondsCounter = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));
+        secondsCounter.setCycleCount(Timeline.INDEFINITE);
+        secondsCounter.play();
 
         board.subscribeToUpdates(this);
         statistic = UserStatistic.getInstance();
@@ -310,6 +319,7 @@ public class GameController implements CarObserver {
             System.out.println("Checking winning condition for car at (" + carRow + ", " + carCol + ")");
             if (carRow == WINNING_ROW && carCol == WINNING_COL) {
                 System.out.println("You won!");
+                secondsCounter.stop();
                 userInterface.showMenu(MenuType.STATISTICS_MENU);
             }
         }
