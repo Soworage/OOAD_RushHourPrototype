@@ -23,31 +23,36 @@ public class Board {
         fillArray();
     }
 
-    public void moveCar(Car car, int x, int y){
-        //search car in array
-
-        for(int i=0; i<car.getLength(); i++){
-            if(car.getDirection() == Direction.HORIZONTAL){
-                carPositions[car.getYPosition()][car.getXPosition()+i] = null;
-            } else if(car.getDirection() == Direction.VERTICAL){
-                carPositions[car.getYPosition()+i][car.getXPosition()] = null;
+    public boolean moveCar(Car car, int x, int y) {
+        // Check if the new position is different from the current position
+        if (car.getXPosition() != x || car.getYPosition() != y) {
+            // Clear the car's current position in the array
+            for (int i = 0; i < car.getLength(); i++) {
+                if (car.getDirection() == Direction.HORIZONTAL) {
+                    carPositions[car.getYPosition()][car.getXPosition() + i] = null;
+                } else if (car.getDirection() == Direction.VERTICAL) {
+                    carPositions[car.getYPosition() + i][car.getXPosition()] = null;
+                }
             }
-        }
 
-        //build into array again
-        for(int i=0; i<car.getLength(); i++){
-            if(car.getDirection() == Direction.HORIZONTAL){
-                carPositions[y][x+i] = car;
-            } else if(car.getDirection() == Direction.VERTICAL){
-                carPositions[y+i][x] = car;
+            // Place the car in the new position in the array
+            for (int i = 0; i < car.getLength(); i++) {
+                if (car.getDirection() == Direction.HORIZONTAL) {
+                    carPositions[y][x + i] = car;
+                } else if (car.getDirection() == Direction.VERTICAL) {
+                    carPositions[y + i][x] = car;
+                }
             }
+
+            // Update the car's position
+            car.setXPosition(x);
+            car.setYPosition(y);
+
+            // Notify observers of the change
+            notifyObservers();
+            return true;
         }
-
-        car.setXPosition(x);
-        car.setYPosition(y);
-
-        notifyObservers();
-
+        return false; // Return false if the car's position has not changed
     }
 
     // Getter für die Breite

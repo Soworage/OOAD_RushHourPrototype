@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inputNameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.inputNameController">
    <children>
       <TextField fx:id="nameInputField" layoutX="35.0" layoutY="61.0" prefHeight="42.0" prefWidth="308.0" />
       <Label layoutX="35.0" layoutY="29.0" text="Namen eingeben">
@@ -14,6 +14,6 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="buttonSave" layoutX="236.0" layoutY="119.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="107.0" text="Speichern" />
+      <Button fx:id="buttonSave" layoutX="236.0" layoutY="119.0" mnemonicParsing="false" onAction="#onSaveButtonPressed" prefHeight="42.0" prefWidth="107.0" text="Speichern" />
    </children>
 </AnchorPane>

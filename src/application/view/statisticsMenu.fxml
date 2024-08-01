@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="statisticsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.statisticsController">
    <children>
       <Label layoutX="29.0" layoutY="27.0" text="Statistik">
          <font>
@@ -27,8 +27,8 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="buttonSaveNo" layoutX="148.0" layoutY="182.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" text="Nein" />
-      <Button fx:id="buttonSaveYes" layoutX="29.0" layoutY="182.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" text="Ja" />
+      <Button fx:id="buttonSaveNo" layoutX="148.0" layoutY="182.0" mnemonicParsing="false" onAction="#onButtonPressNo" prefHeight="45.0" prefWidth="100.0" text="Nein" />
+      <Button fx:id="buttonSaveYes" layoutX="29.0" layoutY="182.0" mnemonicParsing="false" onAction="#onButtonPressYes" prefHeight="45.0" prefWidth="100.0" text="Ja" />
       <Label fx:id="valueMoves" layoutX="198.0" layoutY="57.0" text="0">
          <font>
             <Font size="20.0" />

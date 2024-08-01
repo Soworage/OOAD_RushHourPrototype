@@ -14,11 +14,13 @@ public class HighscoreTable {
         highscoreList.add(new HighscoreEntry(name, anzahlZuege));
     }
 
-    public String getHighscoreList(){
-        StringBuilder bob = new StringBuilder();
-        for (HighscoreEntry h : highscoreList){
-            bob.append("");
-        }
-        return "";
+    public void addEntry(HighscoreEntry highscoreEntry){
+        this.highscoreList.add(highscoreEntry);
+        System.out.println("SAVED ENTRY");
+        System.out.println(highscoreEntry);
+    }
+
+    public List<HighscoreEntry> getHighscoreList() {
+        return highscoreList;
     }
 }

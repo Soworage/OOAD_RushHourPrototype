@@ -2,14 +2,18 @@ package application.controller;
 
 import application.model.*;
 import application.view.UserInterface;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.animation.KeyFrame;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +32,7 @@ public class GameController implements CarObserver {
     private Rectangle selectedRect;
     private Map<Car, List<Rectangle>> carRectangleMap = new HashMap<>();
     private List<Rectangle> selectedRectangleList = new ArrayList<>();
-
+    private UserStatistic newStatistic;
     public BoardManager getBoardManager() {
         return boardManager;
     }
@@ -69,8 +73,26 @@ public class GameController implements CarObserver {
         BoardManager boardManager1 = new BoardManager();
         Difficulty selectedDifficulty = GameSettings.getInstance().getDifficulty();
         board = boardManager1.giveBoardToDiff(selectedDifficulty);
+        // Timeline erstellen --> Zöhlt die Sekunden hoch und setzt sie automatisch
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play(); // Timer starten
+
         board.subscribeToUpdates(this);
+        newStatistic = UserStatistic.getInstance();
+        refreshMovesLabel();
         populateGridPane();
+    }
+
+    private void updateTimer() {
+        newStatistic.addSeconds();
+        int minutes = newStatistic.getSeconds() / 60;
+        int secs = newStatistic.getSeconds() % 60;
+        timeC.setText(String.format("%02d:%02d", minutes, secs));
+    }
+
+    private void refreshMovesLabel(){
+        movesC.setText(String.valueOf(newStatistic.getMoveCount()));
     }
 
     @FXML
@@ -78,10 +100,15 @@ public class GameController implements CarObserver {
         int targetRow = carGrid.getRowIndex(selectedRectangleList.get(0));
         int targetCol = carGrid.getColumnIndex(selectedRectangleList.get(0));
         System.out.println("Board exited, saving pos");
-        board.moveCar(selectedCar, targetCol, targetRow);
-        checkWinningCondition(selectedCar);
+        if(board.moveCar(selectedCar, targetCol, targetRow)){
+            newStatistic.addMove(); //add to statistic
+            checkWinningCondition(selectedCar);
+            refreshMovesLabel();
+        }
         event.consume();
     }
+
+
 
     private void populateGridPane() {
         for (int row = 0; row < GRID_SIZE; row++) {
@@ -259,8 +286,11 @@ public class GameController implements CarObserver {
             int targetRow = carGrid.getRowIndex(selectedRectangleList.get(0));
             int targetCol = carGrid.getColumnIndex(selectedRectangleList.get(0));
             System.out.println("Dropped at " + targetCol + " and " + targetRow);
-            board.moveCar(selectedCar, targetCol, targetRow);
-            checkWinningCondition(selectedCar);
+            if(board.moveCar(selectedCar, targetCol, targetRow)){
+                newStatistic.addMove(); //add to statistic
+                checkWinningCondition(selectedCar);
+                refreshMovesLabel();
+            }
             System.out.println("Dropped at " + targetCol + " and " + targetRow);
             event.setDropCompleted(true);
         } else {
@@ -286,8 +316,8 @@ public class GameController implements CarObserver {
             System.out.println("Checking winning condition for car at (" + carRow + ", " + carCol + ")");
             if (carRow == WINNING_ROW && carCol == WINNING_COL) {
                 System.out.println("You won!");
-                // Go to main menu
-                getUserInterface().showMenu(MenuType.MAIN_MENU);
+                // Go to statistics menu
+                getUserInterface().showMenu(MenuType.STATISTICS_MENU);
             }
         }
     }
