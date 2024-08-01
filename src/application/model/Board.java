@@ -114,7 +114,6 @@ public class Board {
     }
 
 
-
     public Car getCarAt(int x, int y){
         if(x >= 0 && x < width && y >= 0 && y < height){
             if(carPositions[x][y] != null) {

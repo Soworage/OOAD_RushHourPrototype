@@ -4,35 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="bugs gefixt diffulty angepasst, level erstellt">
+    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="fixed bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RushHourPrototype.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RushHourPrototype.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/BoardManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Car.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Color.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Difficulty.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/GameController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/GameLauncher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/GameSettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/HighscoreEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/HighscoreTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/MenuType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/UserInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/UserStatistic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/application.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/colorSchemeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/colorSchemeMenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/diffSelectController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/difficultyMenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/gameMenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/mainMenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/application/mainMenuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/module-info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/gameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/gameMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Board.java" afterDir="false" />
     </list>
     <list id="d3492e14-08c0-4ee6-ab12-9b164d1f3d27" name="Changes by alexm" comment="" />
     <list id="f9a056dc-67e8-4812-a431-2deb8a1d649e" name="Changes by henze" comment="" />
@@ -184,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722505395875</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed bugs">
+      <option name="closed" value="true" />
+      <created>1722532340088</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722532340088</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +189,8 @@
     <MESSAGE value="fix?" />
     <MESSAGE value="added javafx libary" />
     <MESSAGE value="bugs gefixt diffulty angepasst, level erstellt" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugs gefixt diffulty angepasst, level erstellt" />
+    <MESSAGE value="fixed bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -223,7 +207,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/application/controller/GameController.java</url>
-          <line>130</line>
+          <line>120</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>

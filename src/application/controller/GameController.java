@@ -90,9 +90,6 @@ public class GameController implements CarObserver {
                 Rectangle rect = new Rectangle(RECT_SIZE, RECT_SIZE);
                 rect.setFill(Color.WHITE);
 
-                final int currentRow = row;
-                final int currentCol = col;
-
                 Car car = board.getCarAt(row, col);
                 if (car != null) {
                     rect.setFill(car.getCarColor());
@@ -102,13 +99,7 @@ public class GameController implements CarObserver {
                 rect.setStroke(Color.BLACK);
 
                 // Event-Handler für den Mausklick hinzufügen
-                rect.setOnMouseClicked(event -> handleRectangleClick(event, currentCol, currentRow));
-                rect.setOnDragDetected(mouseEvent -> dragDetected(mouseEvent, currentCol, currentRow, rect));
-                rect.setOnDragDone(event -> dragEnded(event, currentCol, currentRow));
-                rect.setOnDragOver(event -> handleDragOver(event));
-                rect.setOnDragEntered(event -> handleDragEntered(event));
-                rect.setOnDragDropped(event -> handleDragDropped(event, currentCol, currentRow));
-                rect.setOnMouseDragged(event -> onMouseReleased(event, currentCol, currentRow));
+                registerEvents(rect, col, row);
                 carGrid.add(rect, col, row);
             }
         }
@@ -122,7 +113,6 @@ public class GameController implements CarObserver {
 
         }
         System.out.println("Rectangle clicked at: Column " + col + ", Row " + row);
-        Car car = board.getCarAt(row, col);
         board.debugFunction();
     }
 
@@ -130,12 +120,11 @@ public class GameController implements CarObserver {
     private void dragDetected(MouseEvent event, int col, int row, Rectangle rect) {
         if (board.getCarAt(row, col) != null) {
             selectedRect = rect;
-            System.out.println("tap at:" + row + ", " + col + ", " + rect);
             selectedCar = board.getCarAt(row, col);
             selectedRectangleList = carRectangleMap.get(selectedCar);
             Dragboard db = rect.startDragAndDrop(TransferMode.MOVE);
             ClipboardContent content = new ClipboardContent();
-            content.putString("rectangle");
+            content.putString("");
             db.setContent(content);
             event.consume();
         }
@@ -174,12 +163,8 @@ public class GameController implements CarObserver {
         rect.setOnDragOver(this::handleDragOver);
         rect.setOnDragEntered(this::handleDragEntered);
         rect.setOnDragDropped(event -> handleDragDropped(event, col, row));
-        rect.setOnMouseDragged(event -> onMouseReleased(event, col, row));
     }
 
-    private void onMouseReleased(MouseEvent event, int col, int row) {
-        event.consume();
-    }
 
     private boolean isMoveOnBoardLegit(int newRow, int newCol) {
         // Überprüfe die Richtung des Fahrzeugs und die neuen Positionen
@@ -275,6 +260,7 @@ public class GameController implements CarObserver {
         }
 
     }
+
 
     private void handleDragDropped(DragEvent event, int col, int row) {
         if (event.getDragboard().hasString() && selectedRect != null) {
