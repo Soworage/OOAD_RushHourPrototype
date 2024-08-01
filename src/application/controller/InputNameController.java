@@ -9,11 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-public class inputNameController {
+public class InputNameController {
 
     private UserStatistic userStatistic;
     private UserInterface userInterface;
@@ -35,21 +33,6 @@ public class inputNameController {
         this.userInterface = userInterface;
     }
 
-    @FXML
-    void onSaveButtonPressed(ActionEvent event) {
-        this.getUserStatistic().setName(nameInputField.getText());
-
-        //create own entry
-        LocalDate now = LocalDate.now();
-        HighscoreEntry entry = new HighscoreEntry(userStatistic.getName(), userStatistic.getMoveCount(),now,String.valueOf(userStatistic.getSeconds()));
-        highscoreTable.addEntry(entry);
-
-        //switch to highscore table
-        userInterface.showMenu(MenuType.HIGHSCORE_MENU);
-
-
-    }
-
     public HighscoreTable getHighscoreTable() {
         return highscoreTable;
     }
@@ -64,6 +47,17 @@ public class inputNameController {
     @FXML
     private TextField nameInputField;
 
-
-
+    @FXML
+    void onSaveButtonPressed(ActionEvent event) {
+        userStatistic.setName(nameInputField.getText());
+        LocalDate now = LocalDate.now();
+        HighscoreEntry entry = new HighscoreEntry(
+                userStatistic.getName(),
+                userStatistic.getMoveCount(),
+                now,
+                String.valueOf(userStatistic.getSeconds())
+        );
+        highscoreTable.addEntry(entry);
+        userInterface.showMenu(MenuType.HIGHSCORE_MENU);
+    }
 }

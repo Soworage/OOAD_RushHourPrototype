@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HighscoreTable {
+
     private List<HighscoreEntry> highscoreList;
 
-    public HighscoreTable(){
+    public HighscoreTable() {
         highscoreList = new ArrayList<>();
     }
 
-    public void addEntry(String name, int anzahlZuege){
-        highscoreList.add(new HighscoreEntry(name, anzahlZuege));
+    public void addEntry(String name, int moveCount) {
+        highscoreList.add(new HighscoreEntry(name, moveCount));
     }
 
-    public void addEntry(HighscoreEntry highscoreEntry){
-        this.highscoreList.add(highscoreEntry);
+    public void addEntry(HighscoreEntry highscoreEntry) {
+        highscoreList.add(highscoreEntry);
         System.out.println("SAVED ENTRY");
         System.out.println(highscoreEntry);
     }

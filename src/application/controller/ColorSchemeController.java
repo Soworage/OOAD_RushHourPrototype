@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
-public class colorSchemeController {
+public class ColorSchemeController {
 
     private UserInterface userInterface;
 
@@ -22,12 +22,12 @@ public class colorSchemeController {
 
     @FXML
     void initialize() {
-        // Füge die Enum-Werte zur ComboBox hinzu
         comboBox.getItems().addAll(Color.values());
         if (!comboBox.getItems().isEmpty()) {
             comboBox.getSelectionModel().selectFirst();
         }
     }
+
     @FXML
     private ComboBox<Color> comboBox;
 
@@ -36,7 +36,6 @@ public class colorSchemeController {
 
     @FXML
     void onClickConfirm(ActionEvent event) {
-        getUserInterface().showMenu(MenuType.GAME_MENU);
+        userInterface.showMenu(MenuType.GAME_MENU);
     }
-
 }

@@ -8,7 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class diffSelectController {
+public class DifficultySelectController {
+
     private UserInterface userInterface;
 
     public UserInterface getUserInterface() {
@@ -30,24 +31,19 @@ public class diffSelectController {
 
     @FXML
     void onClickEasy(ActionEvent event) {
-
         GameSettings.getInstance().setDifficulty(Difficulty.EASY);
-        getUserInterface().showMenu(MenuType.COLORSCHEME_MENU);
+        userInterface.showMenu(MenuType.COLORSCHEME_MENU);
     }
 
     @FXML
     void onClickHard(ActionEvent event) {
         GameSettings.getInstance().setDifficulty(Difficulty.HARD);
-        getUserInterface().showMenu(MenuType.COLORSCHEME_MENU);
-
+        userInterface.showMenu(MenuType.COLORSCHEME_MENU);
     }
 
     @FXML
     void onClickMedium(ActionEvent event) {
         GameSettings.getInstance().setDifficulty(Difficulty.MEDIUM);
-        getUserInterface().showMenu(MenuType.COLORSCHEME_MENU);
+        userInterface.showMenu(MenuType.COLORSCHEME_MENU);
     }
-
-
-
 }

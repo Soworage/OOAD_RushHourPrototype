@@ -1,12 +1,12 @@
 package application.model;
 
 public class GameSettings {
+
     private static GameSettings instance;
     private Difficulty difficulty;
     private Color colorSetting;
 
     private GameSettings() {
-        // Private Constructor to prevent instantiation
     }
 
     public static GameSettings getInstance() {
@@ -33,6 +33,5 @@ public class GameSettings {
     }
 
     public void resetToDefault() {
-
     }
 }

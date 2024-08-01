@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class mainMenuController {
+public class MainMenuController {
 
     private UserInterface userInterface;
 

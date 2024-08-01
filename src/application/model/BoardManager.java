@@ -1,19 +1,18 @@
 package application.model;
 
 import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class BoardManager {
+
     private final List<Board> easyBoards = new ArrayList<>();
     private final List<Board> mediumBoards = new ArrayList<>();
     private final List<Board> hardBoards = new ArrayList<>();
 
-
     public BoardManager() {
-        createEasyBord();
-        createMediumBord();
+        createEasyBoard();
+        createMediumBoard();
         createHardBoard();
     }
 
@@ -29,13 +28,11 @@ public class BoardManager {
         return hardBoards;
     }
 
-    private void createEasyBord(){
-        //create example board
-        List<Car> cars = new ArrayList<>();
-        cars = List.of(new Car[]{
+    private void createEasyBoard() {
+        List<Car> cars = List.of(
                 new Car(0, 0, Direction.VERTICAL, 3, Color.YELLOW),
                 new Car(3, 0, Direction.VERTICAL, 2, Color.OLIVE),
-                new Car(4, 0, Direction.HORIZONTAL, 2, Color.ORANGE), // Hauptziel
+                new Car(4, 0, Direction.HORIZONTAL, 2, Color.ORANGE),
                 new Car(4, 1, Direction.HORIZONTAL, 2, Color.BLUE),
                 new Car(3, 2, Direction.HORIZONTAL, 2, Color.RED),
                 new Car(5, 2, Direction.VERTICAL, 2, Color.PINK),
@@ -44,17 +41,13 @@ public class BoardManager {
                 new Car(1, 4, Direction.HORIZONTAL, 3, Color.BLUE),
                 new Car(4, 4, Direction.HORIZONTAL, 2, Color.GREEN),
                 new Car(0, 5, Direction.HORIZONTAL, 3, Color.LIGHTGREEN)
-        });
-
-
-        Board board = new Board(6,6, cars);
+        );
+        Board board = new Board(6, 6, cars);
         easyBoards.add(board);
     }
 
-    private void createMediumBord(){
-        //create example board
-        List<Car> cars = new ArrayList<>();
-        cars = List.of(new Car[]{
+    private void createMediumBoard() {
+        List<Car> cars = List.of(
                 new Car(1, 0, Direction.VERTICAL, 2, Color.OLIVE),
                 new Car(2, 0, Direction.VERTICAL, 2, Color.ORANGE),
                 new Car(3, 0, Direction.HORIZONTAL, 2, Color.LIGHTBLUE),
@@ -66,18 +59,13 @@ public class BoardManager {
                 new Car(3, 4, Direction.VERTICAL, 2, Color.DARKBLUE),
                 new Car(4, 4, Direction.VERTICAL, 2, Color.BROWN),
                 new Car(1, 5, Direction.HORIZONTAL, 2, Color.LIGHTYELLOW)
-
-
-        });
-
-        Board board = new Board(6,6, cars);
+        );
+        Board board = new Board(6, 6, cars);
         mediumBoards.add(board);
     }
 
-    private void createHardBoard(){
-        //create example board
-        List<Car> cars = new ArrayList<>();
-        cars = List.of(new Car[]{
+    private void createHardBoard() {
+        List<Car> cars = List.of(
                 new Car(0, 0, Direction.VERTICAL, 2, Color.OLIVE),
                 new Car(1, 0, Direction.HORIZONTAL, 3, Color.YELLOW),
                 new Car(4, 0, Direction.VERTICAL, 2, Color.ORANGE),
@@ -88,25 +76,22 @@ public class BoardManager {
                 new Car(2, 3, Direction.VERTICAL, 2, Color.DARKBLUE),
                 new Car(4, 3, Direction.HORIZONTAL, 2, Color.DARKGREEN),
                 new Car(0, 4, Direction.HORIZONTAL, 2, Color.BLACK),
-                new Car(3, 5, Direction.HORIZONTAL, 2, Color.DARKCYAN),
-
-
-        });
-
-        Board board = new Board(6,6, cars);
+                new Car(3, 5, Direction.HORIZONTAL, 2, Color.DARKCYAN)
+        );
+        Board board = new Board(6, 6, cars);
         hardBoards.add(board);
     }
 
-    public Board giveBoardToDiff(Difficulty difficulty){
-        switch(difficulty){
+    public Board giveBoardToDifficulty(Difficulty difficulty) {
+        switch (difficulty) {
             case EASY -> {
-                return getEasyBoards().getFirst();
+                return easyBoards.get(0);
             }
             case MEDIUM -> {
-                return getMediumBoards().getFirst();
+                return mediumBoards.get(0);
             }
             case HARD -> {
-                return getHardBoards().getFirst();
+                return hardBoards.get(0);
             }
         }
         return null;

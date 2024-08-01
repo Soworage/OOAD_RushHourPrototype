@@ -15,7 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class highscoreController {
+public class HighscoreController {
     private HighscoreTable highscoreTable;
     private UserInterface userInterface;
 
@@ -63,7 +63,7 @@ public class highscoreController {
         columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnMoves.setCellValueFactory(new PropertyValueFactory<>("anzahlZuege"));
         columnDate.setCellValueFactory(cellData -> {
-            LocalDate date = cellData.getValue().getDatum();
+            LocalDate date = cellData.getValue().getDate();
             return new SimpleStringProperty(date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         });
         columnTime.setCellValueFactory(new PropertyValueFactory<>("elapsedTime"));
