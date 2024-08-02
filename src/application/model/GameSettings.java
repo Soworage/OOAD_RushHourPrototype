@@ -26,7 +26,6 @@ public class GameSettings {
 
     public void resetToDefault() {
         this.difficulty = null;
-        Color colorSetting = null;
         System.out.println("GameSettings reset confirmed");
     }
 }

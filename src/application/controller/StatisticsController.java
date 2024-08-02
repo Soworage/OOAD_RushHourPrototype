@@ -1,6 +1,6 @@
 package application.controller;
 
-import      application.model.MenuType;
+import application.model.MenuType;
 import application.model.UserStatistic;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
@@ -13,12 +13,6 @@ public class StatisticsController {
     public Button mainMenuButton;
     private UserStatistic userStatistic;
     private UserInterface userInterface;
-
-    @FXML
-    private Button buttonSaveNo;
-
-    @FXML
-    private Button buttonSaveYes;
 
     @FXML
     private Label valueMoves;

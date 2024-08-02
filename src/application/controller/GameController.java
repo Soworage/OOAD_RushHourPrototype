@@ -14,7 +14,6 @@
         import javafx.animation.Timeline;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
-        import javafx.scene.control.Button;
         import javafx.scene.control.Label;
         import javafx.scene.input.DragEvent;
         import javafx.scene.input.Dragboard;
@@ -47,8 +46,6 @@
             private Timeline secondsCounter;
 
             private UserInterface userInterface;
-            @FXML
-            private Button mainMenuButton;
             @FXML
             private Label moveCountLabel;
             @FXML

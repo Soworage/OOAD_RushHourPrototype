@@ -5,7 +5,6 @@ import application.model.MenuType;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
 public class ColorSchemeController {
@@ -13,10 +12,6 @@ public class ColorSchemeController {
     private UserInterface userInterface;
     @FXML
     private ComboBox<Color> comboBox;
-    @FXML
-    private Button confirmButton;
-    @FXML
-    private Button mainMenuButton;
 
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
