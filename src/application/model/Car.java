@@ -2,17 +2,14 @@ package application.model;
 
 import javafx.scene.paint.Color;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Car implements Cloneable {
 
     private final Color carColor;
-    private final List<CarObserver> observers = new ArrayList<>();
+    private final Direction direction;
+    private final int length;
     private int xPosition;
     private int yPosition;
-    private Direction direction;
-    private int length;
 
     public Car(int xPosition, int yPosition, Direction direction, int length, Color carColor) {
         this.xPosition = xPosition;
@@ -46,17 +43,11 @@ public class Car implements Cloneable {
         return direction;
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
 
     public int getLength() {
         return length;
     }
 
-    public void setLength(int length) {
-        this.length = length;
-    }
 
     @Override
     public String toString() {

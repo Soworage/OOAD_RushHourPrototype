@@ -11,9 +11,6 @@ public class HighscoreTable {
         highscoreList = new ArrayList<>();
     }
 
-    public void addEntry(String name, int moveCount) {
-        highscoreList.add(new HighscoreEntry(name, moveCount));
-    }
 
     public void addEntry(HighscoreEntry highscoreEntry) {
         highscoreList.add(highscoreEntry);

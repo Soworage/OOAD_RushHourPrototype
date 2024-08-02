@@ -23,30 +23,14 @@ public class BoardManager {
         createHardBoard();
     }
 
-    public List<Board> getEasyBoards() {
-        return easyBoards;
-    }
-
-    public List<Board> getMediumBoards() {
-        return mediumBoards;
-    }
-
-    public List<Board> getHardBoards() {
-        return hardBoards;
-    }
-
 
     public HighscoreTable getHighScoreTableForBoard(int boardID, Difficulty difficulty) {
         System.out.println("Got a request for Board id " + boardID + "and diff " + difficulty);
-        switch (difficulty) {
-            case EASY:
-                return highScoreTablesForEasyBoards.get(boardID);
-            case MEDIUM:
-                return highScoreTablesForMediumBoards.get(boardID);
-            case HARD:
-                return highScoreTablesForHardBoards.get(boardID);
-        }
-        return null;
+        return switch (difficulty) {
+            case EASY -> highScoreTablesForEasyBoards.get(boardID);
+            case MEDIUM -> highScoreTablesForMediumBoards.get(boardID);
+            case HARD -> highScoreTablesForHardBoards.get(boardID);
+        };
     }
 
     private void createEasyBoard() {
@@ -115,13 +99,13 @@ public class BoardManager {
     public Board giveBoardToDifficulty(Difficulty difficulty) {
         switch (difficulty) {
             case EASY -> {
-                return easyBoards.get(0).clone();
+                return easyBoards.getFirst().clone();
             }
             case MEDIUM -> {
-                return mediumBoards.get(0).clone();
+                return mediumBoards.getFirst().clone();
             }
             case HARD -> {
-                return hardBoards.get(0).clone();
+                return hardBoards.getFirst().clone();
             }
         }
         return null;

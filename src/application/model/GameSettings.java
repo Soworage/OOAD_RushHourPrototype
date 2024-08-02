@@ -4,7 +4,6 @@ public class GameSettings {
 
     private static GameSettings instance;
     private Difficulty difficulty;
-    private Color colorSetting;
 
     private GameSettings() {
     }
@@ -25,17 +24,9 @@ public class GameSettings {
         this.difficulty = difficulty;
     }
 
-    public Color getColorSetting() {
-        return colorSetting;
-    }
-
-    public void setColorSetting(Color colorSetting) {
-        this.colorSetting = colorSetting;
-    }
-
     public void resetToDefault() {
         this.difficulty = null;
-        this.colorSetting = null;
+        Color colorSetting = null;
         System.out.println("GameSettings reset confirmed");
     }
 }

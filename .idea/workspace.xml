@@ -4,35 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="added menus">
+    <list default="true" id="60297c28-5928-4897-ab12-b10ce3606aa9" name="Changes" comment="noch mehr refactoring">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/application/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/application/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/ColorSchemeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/ColorSchemeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/DifficultySelectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/DifficultySelectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/GameLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/GameLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/HighscoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/HighscoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/InputNameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/InputNameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/ResetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/ResetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/controller/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/controller/StatisticsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/model/BoardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/BoardManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/model/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/model/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/model/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/GameSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/model/HighscoreEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/HighscoreEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/model/HighscoreTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/HighscoreTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/model/PINManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/PINManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/model/UserStatistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/model/UserStatistic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/colorSchemeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/colorSchemeMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/difficultyMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/difficultyMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/gameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/gameMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/highScoreTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/highScoreTable.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/inputNameField.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/inputNameField.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/pinMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/pinMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/view/statisticsMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/statisticsMenu.fxml" afterDir="false" />
     </list>
     <list id="d3492e14-08c0-4ee6-ab12-9b164d1f3d27" name="Changes by alexm" comment="" />
     <list id="f9a056dc-67e8-4812-a431-2deb8a1d649e" name="Changes by henze" comment="" />
@@ -209,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722534838665</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="noch mehr refactoring">
+      <option name="closed" value="true" />
+      <created>1722608502024</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722608502024</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +224,8 @@
     <MESSAGE value="fixed bugs" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="added menus" />
-    <option name="LAST_COMMIT_MESSAGE" value="added menus" />
+    <MESSAGE value="noch mehr refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="noch mehr refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

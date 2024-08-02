@@ -49,14 +49,6 @@ public class Board implements Cloneable {
         fillCarPositions();
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
     public void subscribeToUpdates(CarObserver carObserver) {
         observers.add(carObserver);
     }
@@ -67,20 +59,9 @@ public class Board implements Cloneable {
         }
     }
 
-    public void addCar(Car car) {
-        if (isValidPosition(car)) {
-            cars.add(car);
-        } else {
-            System.out.println("Fahrzeugposition außerhalb des Spielfelds.");
-        }
-    }
 
     public void debugFunction() {
         notifyObservers();
-    }
-
-    public void removeCar(Car car) {
-        cars.remove(car);
     }
 
     public Car getCarAt(int x, int y) {
@@ -144,12 +125,6 @@ public class Board implements Cloneable {
         }
     }
 
-    private boolean isValidPosition(Car car) {
-        int xPos = car.getXPosition();
-        int yPos = car.getYPosition();
-        int length = car.getLength();
-        return xPos >= 0 && yPos >= 0 && xPos + length <= width && yPos + length <= height;
-    }
 
     @Override
     public Board clone() {

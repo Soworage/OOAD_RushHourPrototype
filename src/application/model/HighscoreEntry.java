@@ -4,16 +4,10 @@ import java.time.LocalDate;
 
 public class HighscoreEntry {
 
+    private final int moveCount;
     private String name;
-    private int moveCount;
     private LocalDate date;
-    private String elapsedTime;
-
-    public HighscoreEntry(String name, int moveCount) {
-        this.name = name;
-        this.moveCount = moveCount;
-        this.date = LocalDate.now();
-    }
+    private final String elapsedTime;
 
     public HighscoreEntry(String name, int moveCount, LocalDate date, String elapsedTime) {
         this.name = name;
@@ -34,9 +28,6 @@ public class HighscoreEntry {
         return moveCount;
     }
 
-    public void setMoveCount(int moveCount) {
-        this.moveCount = moveCount;
-    }
 
     public String getName() {
         return name;
@@ -50,9 +41,6 @@ public class HighscoreEntry {
         return elapsedTime;
     }
 
-    public void setElapsedTime(String elapsedTime) {
-        this.elapsedTime = elapsedTime;
-    }
 
     @Override
     public String toString() {

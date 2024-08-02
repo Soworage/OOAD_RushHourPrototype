@@ -11,17 +11,13 @@ import java.io.IOException;
 
 public class UserInterface {
 
-    private static final int GRID_SIZE = 6;
-    private static final int RECT_SIZE = 40;
     private final Stage primaryStage;
     private final BoardManager boardManager;
-    private final HighscoreTable highscoreTable;
     private final PINManager pinManager;
 
     public UserInterface(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.boardManager = new BoardManager();
-        this.highscoreTable = new HighscoreTable();
         this.pinManager = new PINManager();
     }
 
@@ -35,7 +31,6 @@ public class UserInterface {
             case HIGHSCORE_MENU -> "highScoreTable.fxml";
             case INPUTNAME_MENU -> "inputNameField.fxml";
             case RESETPIN_MENU -> "pinMenu.fxml";
-            default -> throw new IllegalArgumentException("Unbekannter Menütyp: " + menuType);
         };
 
         try {
@@ -82,8 +77,6 @@ public class UserInterface {
             }
 
             if (loader.getController() instanceof HighscoreController) {
-                //get dif
-                Difficulty userDif = GameSettings.getInstance().getDifficulty();
                 //get targetboard highscoretable
                 HighscoreTable targetHighScoreTable = boardManager.getHighScoreTableForBoard(UserStatistic.getInstance().getSelectedBoard().getBoardId(), GameSettings.getInstance().getDifficulty());
                 ((HighscoreController) loader.getController()).setHighscoreTable(targetHighScoreTable);
