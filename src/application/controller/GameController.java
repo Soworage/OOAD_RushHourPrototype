@@ -106,8 +106,8 @@ public class GameController implements CarObserver {
 
     @FXML
     void onDragExited(DragEvent event) {
-        int targetRow = GridPane.getRowIndex(selectedRectangleList.get(0));
-        int targetCol = GridPane.getColumnIndex(selectedRectangleList.get(0));
+        int targetRow = GridPane.getRowIndex(selectedRectangleList.getFirst());
+        int targetCol = GridPane.getColumnIndex(selectedRectangleList.getFirst());
         System.out.println("Board exited, saving position");
         if (board.moveCar(selectedCar, targetCol, targetRow)) {
             statistic.addMove();
