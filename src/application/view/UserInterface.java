@@ -1,7 +1,19 @@
 package application.view;
 
-import application.controller.*;
-import application.model.*;
+import application.controller.MainMenuController;
+import application.model.BoardManager;
+import application.model.MenuType;
+import application.model.PINManager;
+import application.model.UserStatistic;
+import application.controller.ColorSchemeController;
+import application.controller.DifficultySelectController;
+import application.controller.GameController;
+import application.controller.HighscoreController;
+import application.controller.InputNameController;
+import application.controller.ResetController;
+import application.controller.StatisticsController;
+import application.model.GameSettings;
+import application.model.HighscoreTable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

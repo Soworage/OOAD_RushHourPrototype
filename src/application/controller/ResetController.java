@@ -5,10 +5,15 @@ import application.model.PINManager;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class ResetController {
 
+    @FXML
+    private Button buttonBack;
+    @FXML
+    private Button buttonAccept;
     private UserInterface userInterface;
     private PINManager pinManager;
     @FXML

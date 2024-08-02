@@ -7,12 +7,17 @@ import application.model.UserStatistic;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.time.LocalDate;
 
 public class InputNameController {
 
+    @FXML
+    private Button mainMenuButton;
+    @FXML
+    private Button buttonSave;
     private UserStatistic userStatistic;
     private UserInterface userInterface;
     private HighscoreTable highscoreTable;

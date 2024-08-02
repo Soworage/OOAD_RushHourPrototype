@@ -5,10 +5,15 @@ import application.model.MenuType;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
 public class ColorSchemeController {
 
+    @FXML
+    private Button mainMenuButton;
+    @FXML
+    private Button confirmButton;
     private UserInterface userInterface;
     @FXML
     private ComboBox<Color> comboBox;

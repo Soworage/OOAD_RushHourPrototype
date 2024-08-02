@@ -4,8 +4,13 @@ import application.model.MenuType;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class MainMenuController {
+    @FXML
+    private Button settingsButton;
+    @FXML
+    private Button buttonStart;
     private UserInterface userInterface;
 
     @FXML

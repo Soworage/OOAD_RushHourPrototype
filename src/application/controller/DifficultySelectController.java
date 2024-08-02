@@ -6,8 +6,17 @@ import application.model.MenuType;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class DifficultySelectController {
+    @FXML
+    private Button easyButton;
+    @FXML
+    private Button hardButton;
+    @FXML
+    private Button mediumButton;
+    @FXML
+    private Button mainMenuButton;
     private UserInterface userInterface;
 
     public void setUserInterface(UserInterface userInterface) {

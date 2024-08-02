@@ -1,15 +1,16 @@
 package application.controller;
 
 import application.model.HighscoreTable;
+import application.model.UserStatistic;
+import application.model.GameSettings;
 import application.model.HighscoreEntry;
 import application.model.MenuType;
-import application.model.GameSettings;
-import application.model.UserStatistic;
 import application.view.UserInterface;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,6 +20,8 @@ import java.util.Comparator;
 
 
 public class HighscoreController {
+    @FXML
+    private Button mainMenuButton;
     private HighscoreTable highscoreTable;
     private UserInterface userInterface;
     @FXML

@@ -7,14 +7,13 @@ import javafx.stage.Stage;
 public class GameLauncher {
 
     private final Stage primaryStage;
-    private UserInterface userInterface;
 
     public GameLauncher(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
     public void run() {
-        userInterface = new UserInterface(primaryStage);
+        UserInterface userInterface = new UserInterface(primaryStage);
         userInterface.showMenu(MenuType.MAIN_MENU);
     }
 }

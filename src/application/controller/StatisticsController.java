@@ -9,8 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class StatisticsController {
-
-    public Button mainMenuButton;
+    @FXML
+    private Button buttonSaveYes;
+    @FXML
+    private Button mainMenuButton;
+    @FXML
+    private Button buttonSaveNo;
     private UserStatistic userStatistic;
     private UserInterface userInterface;
 

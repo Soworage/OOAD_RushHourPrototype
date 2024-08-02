@@ -5,9 +5,9 @@ import java.time.LocalDate;
 public class HighscoreEntry {
 
     private final int moveCount;
+    private final String elapsedTime;
     private String name;
     private LocalDate date;
-    private final String elapsedTime;
 
     public HighscoreEntry(String name, int moveCount, LocalDate date, String elapsedTime) {
         this.name = name;
