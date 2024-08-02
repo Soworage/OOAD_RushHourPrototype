@@ -15,6 +15,8 @@ public class ColorSchemeController {
     private ComboBox<Color> comboBox;
     @FXML
     private Button confirmButton;
+    @FXML
+    private Button mainMenuButton;
 
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;

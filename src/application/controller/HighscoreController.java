@@ -27,7 +27,7 @@ public class HighscoreController {
     @FXML
     private Label boardIdLabel;
     @FXML
-    private Button buttonMainMenu;
+    private Button mainMenuButton;
     @FXML
     private TableColumn<HighscoreEntry, String> columnDate;
     @FXML

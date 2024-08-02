@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 
 public class StatisticsController {
 
+    public Button mainMenuButton;
     private UserStatistic userStatistic;
     private UserInterface userInterface;
 

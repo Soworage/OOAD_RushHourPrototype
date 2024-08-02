@@ -48,7 +48,7 @@
 
             private UserInterface userInterface;
             @FXML
-            private Button backToMenuButton;
+            private Button mainMenuButton;
             @FXML
             private Label moveCountLabel;
             @FXML

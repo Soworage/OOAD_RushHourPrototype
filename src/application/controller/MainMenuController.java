@@ -7,7 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class MainMenuController {
-
+    @FXML
+    private Button settingsButton;
     private UserInterface userInterface;
 
     @FXML

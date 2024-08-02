@@ -21,6 +21,8 @@ public class InputNameController {
     private Button buttonSave;
     @FXML
     private TextField nameInputField;
+    @FXML
+    private Button mainMenuButton;
 
     public void setUserStatistic(UserStatistic userStatistic) {
         this.userStatistic = userStatistic;
