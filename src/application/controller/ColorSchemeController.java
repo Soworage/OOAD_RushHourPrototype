@@ -16,10 +16,6 @@ public class ColorSchemeController {
     @FXML
     private Button confirmButton;
 
-    public UserInterface getUserInterface() {
-        return userInterface;
-    }
-
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
     }

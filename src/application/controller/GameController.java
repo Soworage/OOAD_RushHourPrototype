@@ -52,10 +52,6 @@ public class GameController implements CarObserver {
         this.boardManager = boardManager;
     }
 
-    public UserInterface getUserInterface() {
-        return userInterface;
-    }
-
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
     }

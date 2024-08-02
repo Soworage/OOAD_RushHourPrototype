@@ -25,16 +25,8 @@ public class StatisticsController {
     @FXML
     private Label valueTime;
 
-    public UserInterface getUserInterface() {
-        return userInterface;
-    }
-
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
-    }
-
-    public UserStatistic getUserStatistic() {
-        return userStatistic;
     }
 
     public void setUserStatistic(UserStatistic userStatistic) {

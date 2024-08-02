@@ -19,16 +19,8 @@ public class ResetController {
     @FXML
     private TextField codeInput;
 
-    public PINManager getPinManager() {
-        return pinManager;
-    }
-
     public void setPinManager(PINManager pinManager) {
         this.pinManager = pinManager;
-    }
-
-    public UserInterface getUserInterface() {
-        return userInterface;
     }
 
     public void setUserInterface(UserInterface userInterface) {

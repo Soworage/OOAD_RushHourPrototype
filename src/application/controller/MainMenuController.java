@@ -18,10 +18,6 @@ public class MainMenuController {
         userInterface.showMenu(MenuType.DIFFICULTY_MENU);
     }
 
-    public UserInterface getUserInterface() {
-        return userInterface;
-    }
-
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
     }

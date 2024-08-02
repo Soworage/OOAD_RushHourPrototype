@@ -22,24 +22,12 @@ public class InputNameController {
     @FXML
     private TextField nameInputField;
 
-    public UserStatistic getUserStatistic() {
-        return userStatistic;
-    }
-
     public void setUserStatistic(UserStatistic userStatistic) {
         this.userStatistic = userStatistic;
     }
 
-    public UserInterface getUserInterface() {
-        return userInterface;
-    }
-
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
-    }
-
-    public HighscoreTable getHighscoreTable() {
-        return highscoreTable;
     }
 
     public void setHighscoreTable(HighscoreTable highscoreTable) {
