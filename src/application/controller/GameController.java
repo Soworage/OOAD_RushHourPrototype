@@ -1,14 +1,6 @@
 package application.controller;
 
-import application.model.Board;
-import application.model.BoardManager;
-import application.model.Car;
-import application.model.CarObserver;
-import application.model.Direction;
-import application.model.Difficulty;
-import application.model.GameSettings;
-import application.model.MenuType;
-import application.model.UserStatistic;
+import application.model.*;
 import application.view.UserInterface;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -33,17 +25,24 @@ public class GameController implements CarObserver {
     private static final int RECT_SIZE = 100;
     private static final int WINNING_ROW = 4;
     private static final int WINNING_COL = 2;
-
+    private final Map<Car, List<Rectangle>> carRectangleMap = new HashMap<>();
     private Board board;
     private BoardManager boardManager;
     private Car selectedCar;
     private Rectangle selectedRectangle;
-    private Map<Car, List<Rectangle>> carRectangleMap = new HashMap<>();
     private List<Rectangle> selectedRectangleList = new ArrayList<>();
     private UserStatistic statistic;
     private Timeline secondsCounter;
 
     private UserInterface userInterface;
+    @FXML
+    private Button backToMenuButton;
+    @FXML
+    private Label moveCountLabel;
+    @FXML
+    private Label timeCountLabel;
+    @FXML
+    private GridPane carGrid;
 
     public BoardManager getBoardManager() {
         return boardManager;
@@ -61,19 +60,6 @@ public class GameController implements CarObserver {
         this.userInterface = userInterface;
     }
 
-
-    @FXML
-    private Button backToMenuButton;
-
-    @FXML
-    private Label moveCountLabel;
-
-    @FXML
-    private Label timeCountLabel;
-
-    @FXML
-    private GridPane carGrid;
-
     @FXML
     void backToMenuButton(ActionEvent event) {
         secondsCounter.stop();
@@ -81,7 +67,7 @@ public class GameController implements CarObserver {
     }
 
 
-    public void postInit(){
+    public void postInit() {
         //get board
         Difficulty selectedDifficulty = GameSettings.getInstance().getDifficulty();
         board = getBoardManager().giveBoardToDifficulty(selectedDifficulty);
@@ -115,8 +101,8 @@ public class GameController implements CarObserver {
 
     @FXML
     void onDragExited(DragEvent event) {
-        int targetRow = carGrid.getRowIndex(selectedRectangleList.get(0));
-        int targetCol = carGrid.getColumnIndex(selectedRectangleList.get(0));
+        int targetRow = GridPane.getRowIndex(selectedRectangleList.get(0));
+        int targetCol = GridPane.getColumnIndex(selectedRectangleList.get(0));
         System.out.println("Board exited, saving position");
         if (board.moveCar(selectedCar, targetCol, targetRow)) {
             statistic.addMove();
@@ -229,14 +215,9 @@ public class GameController implements CarObserver {
 
     private boolean isWithinBoardBorders(int newRow, int newCol) {
         for (int i = 0; i < selectedRectangleList.size(); i++) {
-            Rectangle rectangle = selectedRectangleList.get(i);
+            int[] position = calculatePosition(newRow, newCol, i);
 
-            int rowOffset = (selectedCar.getDirection() == Direction.VERTICAL) ? i - selectedRectangleList.indexOf(selectedRectangle) : 0;
-            int colOffset = (selectedCar.getDirection() == Direction.HORIZONTAL) ? i - selectedRectangleList.indexOf(selectedRectangle) : 0;
-            int rowPosition = newRow + rowOffset;
-            int colPosition = newCol + colOffset;
-
-            if (rowPosition < 0 || rowPosition >= GRID_SIZE || colPosition < 0 || colPosition >= GRID_SIZE) {
+            if (position[0] < 0 || position[0] >= GRID_SIZE || position[1] < 0 || position[1] >= GRID_SIZE) {
                 return false;
             }
         }
@@ -245,24 +226,29 @@ public class GameController implements CarObserver {
 
     private boolean isPositionBlocked(int newRow, int newCol) {
         for (int i = 0; i < selectedRectangleList.size(); i++) {
-            Rectangle rectangle = selectedRectangleList.get(i);
+            int[] position = calculatePosition(newRow, newCol, i);
 
-            int rowOffset = (selectedCar.getDirection() == Direction.VERTICAL) ? i - selectedRectangleList.indexOf(selectedRectangle) : 0;
-            int colOffset = (selectedCar.getDirection() == Direction.HORIZONTAL) ? i - selectedRectangleList.indexOf(selectedRectangle) : 0;
-            int rowPosition = newRow + rowOffset;
-            int colPosition = newCol + colOffset;
-
-            if (board.getCarAt(rowPosition, colPosition) != null && board.getCarAt(rowPosition, colPosition) != selectedCar) {
+            if (board.getCarAt(position[0], position[1]) != null && board.getCarAt(position[0], position[1]) != selectedCar) {
                 return true;
             }
         }
         return false;
     }
 
+    private int[] calculatePosition(int newRow, int newCol, int index) {
+        int rowOffset = (selectedCar.getDirection() == Direction.VERTICAL) ? index - selectedRectangleList.indexOf(selectedRectangle) : 0;
+        int colOffset = (selectedCar.getDirection() == Direction.HORIZONTAL) ? index - selectedRectangleList.indexOf(selectedRectangle) : 0;
+        int rowPosition = newRow + rowOffset;
+        int colPosition = newCol + colOffset;
+
+        return new int[]{rowPosition, colPosition};
+    }
+
+
     private void moveCarRectangles(List<Rectangle> rectangles, int newRow, int newCol) {
         for (Rectangle rectangle : rectangles) {
-            int oldRow = carGrid.getRowIndex(rectangle);
-            int oldCol = carGrid.getColumnIndex(rectangle);
+            int oldRow = GridPane.getRowIndex(rectangle);
+            int oldCol = GridPane.getColumnIndex(rectangle);
             Rectangle rectPlace = new Rectangle(RECT_SIZE, RECT_SIZE);
             registerEvents(rectPlace, oldCol, oldRow);
 
@@ -286,8 +272,8 @@ public class GameController implements CarObserver {
 
     private void handleDragDropped(DragEvent event, int col, int row) {
         if (event.getDragboard().hasString() && selectedRectangle != null) {
-            int targetRow = carGrid.getRowIndex(selectedRectangleList.get(0));
-            int targetCol = carGrid.getColumnIndex(selectedRectangleList.get(0));
+            int targetRow = GridPane.getRowIndex(selectedRectangleList.get(0));
+            int targetCol = GridPane.getColumnIndex(selectedRectangleList.get(0));
             System.out.println("Dropped at " + targetCol + " and " + targetRow);
             if (board.moveCar(selectedCar, targetCol, targetRow)) {
                 statistic.addMove();

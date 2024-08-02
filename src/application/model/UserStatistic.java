@@ -8,14 +8,6 @@ public class UserStatistic {
     private String name;
     private Board selectedBoard;
 
-    public Board getSelectedBoard() {
-        return selectedBoard;
-    }
-
-    public void setSelectedBoard(Board selectedBoard) {
-        this.selectedBoard = selectedBoard;
-    }
-
     private UserStatistic() {
     }
 
@@ -26,15 +18,23 @@ public class UserStatistic {
         return instance;
     }
 
-    private void resetMoveCount(){
+    public Board getSelectedBoard() {
+        return selectedBoard;
+    }
+
+    public void setSelectedBoard(Board selectedBoard) {
+        this.selectedBoard = selectedBoard;
+    }
+
+    private void resetMoveCount() {
         this.moveCount = 0;
     }
 
-    private void resetSeconds(){
+    private void resetSeconds() {
         this.seconds = 0;
     }
 
-    private void resetSelectedBoard(){
+    private void resetSelectedBoard() {
         this.selectedBoard = null;
     }
 
@@ -62,7 +62,7 @@ public class UserStatistic {
         seconds++;
     }
 
-    public void setToDefault(){
+    public void setToDefault() {
         setName("");
         setSelectedBoard(null);
         resetMoveCount();

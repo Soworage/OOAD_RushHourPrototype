@@ -11,6 +11,12 @@ import javafx.scene.control.Button;
 public class DifficultySelectController {
 
     private UserInterface userInterface;
+    @FXML
+    private Button easyButton;
+    @FXML
+    private Button hardButton;
+    @FXML
+    private Button mediumButton;
 
     public UserInterface getUserInterface() {
         return userInterface;
@@ -19,15 +25,6 @@ public class DifficultySelectController {
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
     }
-
-    @FXML
-    private Button easyButton;
-
-    @FXML
-    private Button hardButton;
-
-    @FXML
-    private Button mediumButton;
 
     @FXML
     void onClickEasy(ActionEvent event) {

@@ -11,6 +11,10 @@ import javafx.scene.control.ComboBox;
 public class ColorSchemeController {
 
     private UserInterface userInterface;
+    @FXML
+    private ComboBox<Color> comboBox;
+    @FXML
+    private Button confirmButton;
 
     public UserInterface getUserInterface() {
         return userInterface;
@@ -27,12 +31,6 @@ public class ColorSchemeController {
             comboBox.getSelectionModel().selectFirst();
         }
     }
-
-    @FXML
-    private ComboBox<Color> comboBox;
-
-    @FXML
-    private Button confirmButton;
 
     @FXML
     void onClickConfirm(ActionEvent event) {

@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 public class GameLauncher {
 
-    private Stage primaryStage;
+    private final Stage primaryStage;
     private UserInterface userInterface;
 
     public GameLauncher(Stage primaryStage) {

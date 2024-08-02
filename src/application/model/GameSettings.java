@@ -10,9 +10,6 @@ public class GameSettings {
     }
 
 
-
-
-
     public static GameSettings getInstance() {
         if (instance == null) {
             instance = new GameSettings();

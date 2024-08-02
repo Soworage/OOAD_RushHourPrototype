@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DifficultySelectController">
-   <children>
-      <AnchorPane prefHeight="312.0" prefWidth="524.0">
-         <children>
-            <Label layoutX="223.0" layoutY="24.0" text="Select difficulty" />
-            <Button fx:id="easyButton" layoutX="205.0" layoutY="55.0" mnemonicParsing="false" onAction="#onClickEasy" prefHeight="69.0" prefWidth="118.0" text="Easy" />
-            <Button fx:id="mediumButton" layoutX="205.0" layoutY="137.0" mnemonicParsing="false" onAction="#onClickMedium" prefHeight="69.0" prefWidth="118.0" text="Medium" />
-            <Button fx:id="hardButton" layoutX="205.0" layoutY="220.0" mnemonicParsing="false" onAction="#onClickHard" prefHeight="69.0" prefWidth="118.0" text="Hard" />
-            <Button fx:id="mainMenuButton" layoutX="373.0" layoutY="13.0" mnemonicParsing="false" onAction="#onMainMenuButtonClick" prefHeight="39.0" prefWidth="140.0" text="Back to Main Menu" />
-         </children>
-      </AnchorPane>
-   </children>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="353.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/22"
+      fx:controller="application.controller.DifficultySelectController">
+    <children>
+        <AnchorPane prefHeight="312.0" prefWidth="524.0">
+            <children>
+                <Label layoutX="223.0" layoutY="24.0" text="Select difficulty"/>
+                <Button fx:id="easyButton" layoutX="205.0" layoutY="55.0" mnemonicParsing="false"
+                        onAction="#onClickEasy" prefHeight="69.0" prefWidth="118.0" text="Easy"/>
+                <Button fx:id="mediumButton" layoutX="205.0" layoutY="137.0" mnemonicParsing="false"
+                        onAction="#onClickMedium" prefHeight="69.0" prefWidth="118.0" text="Medium"/>
+                <Button fx:id="hardButton" layoutX="205.0" layoutY="220.0" mnemonicParsing="false"
+                        onAction="#onClickHard" prefHeight="69.0" prefWidth="118.0" text="Hard"/>
+                <Button fx:id="mainMenuButton" layoutX="373.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#onMainMenuButtonClick" prefHeight="39.0" prefWidth="140.0" text="Back to Main Menu"/>
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>

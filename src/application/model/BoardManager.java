@@ -1,6 +1,7 @@
 package application.model;
 
 import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,8 +37,8 @@ public class BoardManager {
 
 
     public HighscoreTable getHighScoreTableForBoard(int boardID, Difficulty difficulty) {
-        System.out.println("Got a request for Board id "  + boardID + "and diff " + difficulty);
-        switch(difficulty) {
+        System.out.println("Got a request for Board id " + boardID + "and diff " + difficulty);
+        switch (difficulty) {
             case EASY:
                 return highScoreTablesForEasyBoards.get(boardID);
             case MEDIUM:
@@ -66,7 +67,7 @@ public class BoardManager {
         //create highScoreTable for Board
         HighscoreTable highscoreTable = new HighscoreTable();
         highScoreTablesForEasyBoards.put(easyBoards.size(), highscoreTable);
-        Board board = new Board(easyBoards.size(),6, 6, cars);
+        Board board = new Board(easyBoards.size(), 6, 6, cars);
         easyBoards.add(board);
 
     }
@@ -87,7 +88,7 @@ public class BoardManager {
         );
         HighscoreTable highscoreTable = new HighscoreTable();
         highScoreTablesForMediumBoards.put(mediumBoards.size(), highscoreTable);
-        Board board = new Board(mediumBoards.size(),6, 6, cars);
+        Board board = new Board(mediumBoards.size(), 6, 6, cars);
         mediumBoards.add(board);
     }
 
@@ -107,7 +108,7 @@ public class BoardManager {
         );
         HighscoreTable highscoreTable = new HighscoreTable();
         highScoreTablesForHardBoards.put(hardBoards.size(), highscoreTable);
-        Board board = new Board(hardBoards.size(),6, 6, cars);
+        Board board = new Board(hardBoards.size(), 6, 6, cars);
         hardBoards.add(board);
     }
 

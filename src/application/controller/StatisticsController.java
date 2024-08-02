@@ -3,10 +3,10 @@ package application.controller;
 import application.model.MenuType;
 import application.model.UserStatistic;
 import application.view.UserInterface;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.event.ActionEvent;
 
 public class StatisticsController {
 
@@ -57,6 +57,7 @@ public class StatisticsController {
     void onButtonPressYes(ActionEvent event) {
         userInterface.showMenu(MenuType.INPUTNAME_MENU);
     }
+
     @FXML
     void onButtonPressMainMenu(ActionEvent event) {
         userInterface.showMenu(MenuType.MAIN_MENU);

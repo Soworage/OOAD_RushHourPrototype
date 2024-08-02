@@ -2,20 +2,21 @@ package application.view;
 
 import application.controller.*;
 import application.model.*;
-import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class UserInterface {
 
-    private Stage primaryStage;
-    private BoardManager boardManager;
-    private HighscoreTable highscoreTable;
-    private PINManager pinManager;
     private static final int GRID_SIZE = 6;
     private static final int RECT_SIZE = 40;
+    private final Stage primaryStage;
+    private final BoardManager boardManager;
+    private final HighscoreTable highscoreTable;
+    private final PINManager pinManager;
 
     public UserInterface(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -33,7 +34,7 @@ public class UserInterface {
             case STATISTICS_MENU -> "statisticsMenu.fxml";
             case HIGHSCORE_MENU -> "highScoreTable.fxml";
             case INPUTNAME_MENU -> "inputNameField.fxml";
-            case RESETPIN_MENU ->  "pinMenu.fxml";
+            case RESETPIN_MENU -> "pinMenu.fxml";
             default -> throw new IllegalArgumentException("Unbekannter Menütyp: " + menuType);
         };
 

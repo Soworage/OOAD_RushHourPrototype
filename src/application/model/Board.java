@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Board implements Cloneable {
 
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
+    private final Car[][] carPositions;
+    private final List<CarObserver> observers;
+    private final int boardId;
     private List<Car> cars;
-    private Car[][] carPositions;
-    private List<CarObserver> observers;
-    private int boardId;
 
-    public Board(int boardId,int width, int height, List<Car> carsToAdd) {
+    public Board(int boardId, int width, int height, List<Car> carsToAdd) {
         this.boardId = boardId;
         this.width = width;
         this.height = height;
@@ -39,9 +39,9 @@ public class Board implements Cloneable {
         return false;
     }
 
-    public void makeReadyForUse(){
-        for(int i=0; i<height; i++){
-            for(int j=0; j<width; j++){
+    public void makeReadyForUse() {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
                 carPositions[i][j] = null;
             }
         }
@@ -111,7 +111,6 @@ public class Board implements Cloneable {
     }
 
 
-
     private void clearCarPosition(Car car) {
         for (int i = 0; i < car.getLength(); i++) {
             if (car.getDirection() == Direction.HORIZONTAL) {
@@ -149,10 +148,7 @@ public class Board implements Cloneable {
         int xPos = car.getXPosition();
         int yPos = car.getYPosition();
         int length = car.getLength();
-        if (xPos < 0 || yPos < 0 || xPos + length > width || yPos + length > height) {
-            return false;
-        }
-        return true;
+        return xPos >= 0 && yPos >= 0 && xPos + length <= width && yPos + length <= height;
     }
 
     @Override
@@ -161,7 +157,7 @@ public class Board implements Cloneable {
             Board clone = (Board) super.clone();
             clone.cars = new ArrayList<>(this.cars.size());
 
-            for(Car car : this.cars){
+            for (Car car : this.cars) {
                 clone.cars.add(car.clone());
             }
 

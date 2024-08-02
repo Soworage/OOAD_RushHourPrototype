@@ -25,6 +25,7 @@ public class MainMenuController {
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
     }
+
     @FXML
     void onSettingsButtonPress(ActionEvent event) {
         userInterface.showMenu(MenuType.RESETPIN_MENU);

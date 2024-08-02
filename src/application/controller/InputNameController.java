@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
 import java.time.LocalDate;
 
 public class InputNameController {
@@ -16,6 +17,10 @@ public class InputNameController {
     private UserStatistic userStatistic;
     private UserInterface userInterface;
     private HighscoreTable highscoreTable;
+    @FXML
+    private Button buttonSave;
+    @FXML
+    private TextField nameInputField;
 
     public UserStatistic getUserStatistic() {
         return userStatistic;
@@ -42,12 +47,6 @@ public class InputNameController {
     }
 
     @FXML
-    private Button buttonSave;
-
-    @FXML
-    private TextField nameInputField;
-
-    @FXML
     void onSaveButtonPressed(ActionEvent event) {
         userStatistic.setName(nameInputField.getText());
         LocalDate now = LocalDate.now();
@@ -60,11 +59,11 @@ public class InputNameController {
         highscoreTable.addEntry(entry);
         userInterface.showMenu(MenuType.HIGHSCORE_MENU);
     }
+
     @FXML
     void onPressBackToMainMenuButton(ActionEvent event) {
         userInterface.showMenu(MenuType.MAIN_MENU);
     }
-
 
 
 }

@@ -1,17 +1,18 @@
 package application.model;
 
 import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Car implements  Cloneable {
+public class Car implements Cloneable {
 
+    private final Color carColor;
+    private final List<CarObserver> observers = new ArrayList<>();
     private int xPosition;
     private int yPosition;
     private Direction direction;
     private int length;
-    private Color carColor;
-    private List<CarObserver> observers = new ArrayList<>();
 
     public Car(int xPosition, int yPosition, Direction direction, int length, Color carColor) {
         this.xPosition = xPosition;

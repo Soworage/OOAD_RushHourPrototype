@@ -5,7 +5,7 @@ import java.util.List;
 
 public class HighscoreTable {
 
-    private List<HighscoreEntry> highscoreList;
+    private final List<HighscoreEntry> highscoreList;
 
     public HighscoreTable() {
         highscoreList = new ArrayList<>();
