@@ -1,6 +1,10 @@
 package application.controller;
 
-import application.model.*;
+import application.model.HighscoreTable;
+import application.model.HighscoreEntry;
+import application.model.MenuType;
+import application.model.GameSettings;
+import application.model.UserStatistic;
 import application.view.UserInterface;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,16 +39,8 @@ public class HighscoreController {
     @FXML
     private TableView<HighscoreEntry> tableViewHighScore;
 
-    public HighscoreTable getHighscoreTable() {
-        return highscoreTable;
-    }
-
     public void setHighscoreTable(HighscoreTable highscoreTable) {
         this.highscoreTable = highscoreTable;
-    }
-
-    public UserInterface getUserInterface() {
-        return userInterface;
     }
 
     public void setUserInterface(UserInterface userInterface) {

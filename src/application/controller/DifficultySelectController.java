@@ -18,10 +18,6 @@ public class DifficultySelectController {
     @FXML
     private Button mediumButton;
 
-    public UserInterface getUserInterface() {
-        return userInterface;
-    }
-
     public void setUserInterface(UserInterface userInterface) {
         this.userInterface = userInterface;
     }

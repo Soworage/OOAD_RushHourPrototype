@@ -26,6 +26,4 @@ public class MainMenuController {
     void onSettingsButtonPress(ActionEvent event) {
         userInterface.showMenu(MenuType.RESETPIN_MENU);
     }
-
-
 }

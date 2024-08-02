@@ -1,6 +1,6 @@
 package application.controller;
 
-import application.model.MenuType;
+import      application.model.MenuType;
 import application.model.UserStatistic;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
