@@ -1,26 +1,16 @@
 package application.model;
 
-import javafx.scene.paint.Color;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class BoardManager {
 
     private final EasyBoardCreator easyBoardCreator;
     private final MediumBoardCreator mediumBoardCreator;
-    private final List<Board> mediumBoards = new ArrayList<>();
-    private final List<Board> hardBoards = new ArrayList<>();
-
-    private final Map<Integer, HighscoreTable> highScoreTablesForMediumBoards = new HashMap<>();
-    private final Map<Integer, HighscoreTable> highScoreTablesForHardBoards = new HashMap<>();
+    private final HardBoardCreator hardBoardCreator;
 
     public BoardManager() {
         easyBoardCreator = new EasyBoardCreator();
         mediumBoardCreator = new MediumBoardCreator();
-        createHardBoard();
+        hardBoardCreator = new HardBoardCreator();
     }
 
 
@@ -29,94 +19,8 @@ public class BoardManager {
         return switch (difficulty) {
             case EASY -> easyBoardCreator.getHighscoreTable(boardID);
             case MEDIUM -> mediumBoardCreator.getHighscoreTable(boardID);
-            case HARD -> highScoreTablesForHardBoards.get(boardID);
+            case HARD -> hardBoardCreator.getHighscoreTable(boardID);
         };
-    }
-
-    private void createHardBoard() {
-        List<Car> cars = List.of(
-                new Car.Builder()
-                        .setXPosition(0)
-                        .setYPosition(0)
-                        .setDirection(Direction.VERTICAL)
-                        .setLength(2)
-                        .setCarColor(Color.OLIVE)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(1)
-                        .setYPosition(0)
-                        .setDirection(Direction.HORIZONTAL)
-                        .setLength(3)
-                        .setCarColor(Color.YELLOW)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(4)
-                        .setYPosition(0)
-                        .setDirection(Direction.VERTICAL)
-                        .setLength(2)
-                        .setCarColor(Color.ORANGE)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(5)
-                        .setYPosition(0)
-                        .setDirection(Direction.VERTICAL)
-                        .setLength(2)
-                        .setCarColor(Color.LIGHTBLUE)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(0)
-                        .setYPosition(2)
-                        .setDirection(Direction.HORIZONTAL)
-                        .setLength(2)
-                        .setCarColor(Color.RED)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(2)
-                        .setYPosition(1)
-                        .setDirection(Direction.VERTICAL)
-                        .setLength(2)
-                        .setCarColor(Color.PINK)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(3)
-                        .setYPosition(2)
-                        .setDirection(Direction.VERTICAL)
-                        .setLength(3)
-                        .setCarColor(Color.PURPLE)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(2)
-                        .setYPosition(3)
-                        .setDirection(Direction.VERTICAL)
-                        .setLength(2)
-                        .setCarColor(Color.DARKBLUE)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(4)
-                        .setYPosition(3)
-                        .setDirection(Direction.HORIZONTAL)
-                        .setLength(2)
-                        .setCarColor(Color.DARKGREEN)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(0)
-                        .setYPosition(4)
-                        .setDirection(Direction.HORIZONTAL)
-                        .setLength(2)
-                        .setCarColor(Color.BLACK)
-                        .build(),
-                new Car.Builder()
-                        .setXPosition(3)
-                        .setYPosition(5)
-                        .setDirection(Direction.HORIZONTAL)
-                        .setLength(2)
-                        .setCarColor(Color.DARKCYAN)
-                        .build()
-        );
-        HighscoreTable highscoreTable = new HighscoreTable();
-        highScoreTablesForHardBoards.put(hardBoards.size(), highscoreTable);
-        Board board = new Board(hardBoards.size(), 6, 6, cars);
-        hardBoards.add(board);
     }
 
     public Board giveBoardToDifficulty(Difficulty difficulty) {
@@ -128,7 +32,7 @@ public class BoardManager {
                 return mediumBoardCreator.getBoard();
             }
             case HARD -> {
-                return hardBoards.getFirst().clone();
+                return hardBoardCreator.getBoard();
             }
         }
         return null;
