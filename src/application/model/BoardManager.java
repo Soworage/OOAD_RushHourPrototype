@@ -24,4 +24,5 @@ public class BoardManager {
     public Board giveBoardToDifficulty(Difficulty difficulty) {
         return boardCreators.get(difficulty).getBoard();
     }
+
 }
