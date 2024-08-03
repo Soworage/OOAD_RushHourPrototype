@@ -2,7 +2,6 @@ package application.model;
 
 import javafx.scene.paint.Color;
 
-
 public class Car implements Cloneable {
 
     private final Color carColor;
@@ -11,12 +10,12 @@ public class Car implements Cloneable {
     private int xPosition;
     private int yPosition;
 
-    public Car(int xPosition, int yPosition, Direction direction, int length, Color carColor) {
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
-        this.direction = direction;
-        this.carColor = carColor;
-        this.length = length;
+    private Car(Builder builder) {
+        this.xPosition = builder.xPosition;
+        this.yPosition = builder.yPosition;
+        this.direction = builder.direction;
+        this.length = builder.length;
+        this.carColor = builder.carColor;
     }
 
     public Color getCarColor() {
@@ -43,11 +42,9 @@ public class Car implements Cloneable {
         return direction;
     }
 
-
     public int getLength() {
         return length;
     }
-
 
     @Override
     public String toString() {
@@ -63,4 +60,42 @@ public class Car implements Cloneable {
             throw new AssertionError();
         }
     }
+
+    public static class Builder {
+        private Color carColor;
+        private Direction direction;
+        private int length;
+        private int xPosition;
+        private int yPosition;
+
+        public Builder setCarColor(Color carColor) {
+            this.carColor = carColor;
+            return this;
+        }
+
+        public Builder setDirection(Direction direction) {
+            this.direction = direction;
+            return this;
+        }
+
+        public Builder setLength(int length) {
+            this.length = length;
+            return this;
+        }
+
+        public Builder setXPosition(int xPosition) {
+            this.xPosition = xPosition;
+            return this;
+        }
+
+        public Builder setYPosition(int yPosition) {
+            this.yPosition = yPosition;
+            return this;
+        }
+
+        public Car build() {
+            return new Car(this);
+        }
+    }
 }
+

@@ -35,17 +35,83 @@ public class BoardManager {
 
     private void createEasyBoard() {
         List<Car> cars = List.of(
-                new Car(0, 0, Direction.VERTICAL, 3, Color.YELLOW),
-                new Car(3, 0, Direction.VERTICAL, 2, Color.OLIVE),
-                new Car(4, 0, Direction.HORIZONTAL, 2, Color.ORANGE),
-                new Car(4, 1, Direction.HORIZONTAL, 2, Color.BLUE),
-                new Car(3, 2, Direction.HORIZONTAL, 2, Color.RED),
-                new Car(5, 2, Direction.VERTICAL, 2, Color.PINK),
-                new Car(0, 3, Direction.VERTICAL, 2, Color.BLACK),
-                new Car(1, 3, Direction.HORIZONTAL, 3, Color.MAGENTA),
-                new Car(1, 4, Direction.HORIZONTAL, 3, Color.BLUE),
-                new Car(4, 4, Direction.HORIZONTAL, 2, Color.GREEN),
-                new Car(0, 5, Direction.HORIZONTAL, 3, Color.LIGHTGREEN)
+                new Car.Builder()
+                        .setXPosition(0)
+                        .setYPosition(0)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(3)
+                        .setCarColor(Color.YELLOW)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(3)
+                        .setYPosition(0)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.OLIVE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(4)
+                        .setYPosition(0)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.ORANGE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(4)
+                        .setYPosition(1)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.BLUE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(3)
+                        .setYPosition(2)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.RED)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(5)
+                        .setYPosition(2)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.PINK)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(0)
+                        .setYPosition(3)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.BLACK)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(1)
+                        .setYPosition(3)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(3)
+                        .setCarColor(Color.MAGENTA)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(1)
+                        .setYPosition(4)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(3)
+                        .setCarColor(Color.BLUE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(4)
+                        .setYPosition(4)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.GREEN)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(0)
+                        .setYPosition(5)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(3)
+                        .setCarColor(Color.LIGHTGREEN)
+                        .build()
         );
 
         //create highScoreTable for Board
@@ -58,17 +124,83 @@ public class BoardManager {
 
     private void createMediumBoard() {
         List<Car> cars = List.of(
-                new Car(1, 0, Direction.VERTICAL, 2, Color.OLIVE),
-                new Car(2, 0, Direction.VERTICAL, 2, Color.ORANGE),
-                new Car(3, 0, Direction.HORIZONTAL, 2, Color.LIGHTBLUE),
-                new Car(3, 1, Direction.HORIZONTAL, 2, Color.PINK),
-                new Car(0, 2, Direction.HORIZONTAL, 2, Color.RED),
-                new Car(2, 2, Direction.VERTICAL, 2, Color.PURPLE),
-                new Car(5, 3, Direction.VERTICAL, 2, Color.GREEN),
-                new Car(0, 4, Direction.HORIZONTAL, 3, Color.YELLOW),
-                new Car(3, 4, Direction.VERTICAL, 2, Color.DARKBLUE),
-                new Car(4, 4, Direction.VERTICAL, 2, Color.BROWN),
-                new Car(1, 5, Direction.HORIZONTAL, 2, Color.LIGHTYELLOW)
+                new Car.Builder()
+                        .setXPosition(1)
+                        .setYPosition(0)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.OLIVE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(2)
+                        .setYPosition(0)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.ORANGE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(3)
+                        .setYPosition(0)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.LIGHTBLUE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(3)
+                        .setYPosition(1)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.PINK)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(0)
+                        .setYPosition(2)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.RED)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(2)
+                        .setYPosition(2)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.PURPLE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(5)
+                        .setYPosition(3)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.GREEN)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(0)
+                        .setYPosition(4)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(3)
+                        .setCarColor(Color.YELLOW)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(3)
+                        .setYPosition(4)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.DARKBLUE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(4)
+                        .setYPosition(4)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.BROWN)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(1)
+                        .setYPosition(5)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.LIGHTYELLOW)
+                        .build()
         );
         HighscoreTable highscoreTable = new HighscoreTable();
         highScoreTablesForMediumBoards.put(mediumBoards.size(), highscoreTable);
@@ -78,17 +210,83 @@ public class BoardManager {
 
     private void createHardBoard() {
         List<Car> cars = List.of(
-                new Car(0, 0, Direction.VERTICAL, 2, Color.OLIVE),
-                new Car(1, 0, Direction.HORIZONTAL, 3, Color.YELLOW),
-                new Car(4, 0, Direction.VERTICAL, 2, Color.ORANGE),
-                new Car(5, 0, Direction.VERTICAL, 2, Color.LIGHTBLUE),
-                new Car(0, 2, Direction.HORIZONTAL, 2, Color.RED),
-                new Car(2, 1, Direction.VERTICAL, 2, Color.PINK),
-                new Car(3, 2, Direction.VERTICAL, 3, Color.PURPLE),
-                new Car(2, 3, Direction.VERTICAL, 2, Color.DARKBLUE),
-                new Car(4, 3, Direction.HORIZONTAL, 2, Color.DARKGREEN),
-                new Car(0, 4, Direction.HORIZONTAL, 2, Color.BLACK),
-                new Car(3, 5, Direction.HORIZONTAL, 2, Color.DARKCYAN)
+                new Car.Builder()
+                        .setXPosition(0)
+                        .setYPosition(0)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.OLIVE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(1)
+                        .setYPosition(0)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(3)
+                        .setCarColor(Color.YELLOW)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(4)
+                        .setYPosition(0)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.ORANGE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(5)
+                        .setYPosition(0)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.LIGHTBLUE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(0)
+                        .setYPosition(2)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.RED)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(2)
+                        .setYPosition(1)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.PINK)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(3)
+                        .setYPosition(2)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(3)
+                        .setCarColor(Color.PURPLE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(2)
+                        .setYPosition(3)
+                        .setDirection(Direction.VERTICAL)
+                        .setLength(2)
+                        .setCarColor(Color.DARKBLUE)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(4)
+                        .setYPosition(3)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.DARKGREEN)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(0)
+                        .setYPosition(4)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.BLACK)
+                        .build(),
+                new Car.Builder()
+                        .setXPosition(3)
+                        .setYPosition(5)
+                        .setDirection(Direction.HORIZONTAL)
+                        .setLength(2)
+                        .setCarColor(Color.DARKCYAN)
+                        .build()
         );
         HighscoreTable highscoreTable = new HighscoreTable();
         highScoreTablesForHardBoards.put(hardBoards.size(), highscoreTable);
