@@ -1,40 +1,27 @@
 package application.model;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BoardManager {
 
-    private final EasyBoardCreator easyBoardCreator;
-    private final MediumBoardCreator mediumBoardCreator;
-    private final HardBoardCreator hardBoardCreator;
+    private final Map<Difficulty, BoardCreatorInterface> boardCreators;
 
     public BoardManager() {
-        easyBoardCreator = new EasyBoardCreator();
-        mediumBoardCreator = new MediumBoardCreator();
-        hardBoardCreator = new HardBoardCreator();
+        boardCreators = new HashMap<>();
+        boardCreators.put(Difficulty.EASY, new EasyBoardCreator());
+        boardCreators.put(Difficulty.HARD, new HardBoardCreator());
+        boardCreators.put(Difficulty.MEDIUM, new MediumBoardCreator());
     }
 
 
     public HighscoreTable getHighScoreTableForBoard(int boardID, Difficulty difficulty) {
         System.out.println("Got a request for Board id " + boardID + "and diff " + difficulty);
-        return switch (difficulty) {
-            case EASY -> easyBoardCreator.getHighscoreTable(boardID);
-            case MEDIUM -> mediumBoardCreator.getHighscoreTable(boardID);
-            case HARD -> hardBoardCreator.getHighscoreTable(boardID);
-        };
+        return boardCreators.get(difficulty).getHighscoreTable(boardID);
     }
 
     public Board giveBoardToDifficulty(Difficulty difficulty) {
-        switch (difficulty) {
-            case EASY -> {
-                return easyBoardCreator.getBoard();
-            }
-            case MEDIUM -> {
-                return mediumBoardCreator.getBoard();
-            }
-            case HARD -> {
-                return hardBoardCreator.getBoard();
-            }
-        }
-        return null;
+        return boardCreators.get(difficulty).getBoard();
     }
 }
