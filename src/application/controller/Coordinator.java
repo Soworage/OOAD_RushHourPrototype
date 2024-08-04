@@ -18,17 +18,18 @@ import application.view.SceneManager;
 import javafx.stage.Stage;
 
 public class Coordinator {
-
     private final SceneManager sceneManager;
     private final BoardManager boardManager;
     private final UserStatistic userStatistic;
     private final PINManager pinManager;
+    private final InactivityNotifier inactivityNotifier;
 
     public Coordinator(Stage primaryStage) {
         this.sceneManager = new SceneManager(primaryStage);
         this.boardManager = new BoardManager();
         this.userStatistic = UserStatistic.getInstance();
         this.pinManager = new PINManager();
+        this.inactivityNotifier = InactivityNotifier.getInstance(this);
     }
 
     public void start() {
@@ -43,9 +44,12 @@ public class Coordinator {
 
         sceneManager.setController(mainMenuView);
         sceneManager.showMenu(MenuType.MAIN_MENU);
+
+        inactivityNotifier.resetTimer();
     }
 
     public void showDifficultyMenu() {
+
         DifficultySelectView difficultySelectView = new DifficultySelectView();
         DifficultySelectController difficultySelectController = new DifficultySelectController(this);
 
@@ -53,9 +57,12 @@ public class Coordinator {
 
         sceneManager.setController(difficultySelectView);
         sceneManager.showMenu(MenuType.DIFFICULTY_MENU);
+
+        inactivityNotifier.startTimer();
     }
 
     public void showColorSchemeMenu() {
+
         ColorSchemeView colorSchemeView = new ColorSchemeView();
         ColorSchemeController colorSchemeController = new ColorSchemeController(this);
 
@@ -63,9 +70,12 @@ public class Coordinator {
 
         sceneManager.setController(colorSchemeView);
         sceneManager.showMenu(MenuType.COLORSCHEME_MENU);
+
+        inactivityNotifier.startTimer();
     }
 
     public void showResetPinMenu() {
+
         ResetView resetView = new ResetView();
         ResetController resetController = new ResetController(pinManager, this);
 
@@ -73,6 +83,8 @@ public class Coordinator {
 
         sceneManager.setController(resetView);
         sceneManager.showMenu(MenuType.RESETPIN_MENU);
+
+        inactivityNotifier.startTimer();
     }
 
     public void showGame() {
@@ -84,6 +96,8 @@ public class Coordinator {
         sceneManager.setController(gameView);
         sceneManager.showMenu(MenuType.GAME_MENU);
         gameController.postInit();
+
+        inactivityNotifier.startTimer();
     }
 
     public void showStatistics() {
@@ -92,6 +106,8 @@ public class Coordinator {
         sceneManager.setController(statisticsView);
         sceneManager.showMenu(MenuType.STATISTICS_MENU);
         statisticsController.postInit();
+
+        inactivityNotifier.startTimer();
     }
 
 
@@ -105,6 +121,8 @@ public class Coordinator {
         sceneManager.setController(highscoreView);
         sceneManager.showMenu(MenuType.HIGHSCORE_MENU);
         highscoreController.postInit();
+
+        inactivityNotifier.startTimer();
     }
 
     public void showInputNameMenu() {
@@ -120,5 +138,11 @@ public class Coordinator {
 
         sceneManager.setController(inputNameView);
         sceneManager.showMenu(MenuType.INPUTNAME_MENU);
+
+        inactivityNotifier.startTimer();
+    }
+
+    public InactivityNotifier getInactivityNotifier() {
+        return inactivityNotifier;
     }
 }

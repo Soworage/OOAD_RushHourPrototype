@@ -11,7 +11,11 @@ import application.model.Car;
 import application.view.GameView;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.scene.input.*;
+import javafx.scene.input.TransferMode;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -118,6 +122,7 @@ public class GameController implements CarObserver {
     }
 
     private void handleRectangleClick(int col, int row) {
+        coordinator.getInactivityNotifier().startTimer();
         if (selectedCar != null) {
             Car car = board.getCarAt(row, col);
             System.out.println(carRectangleMap.get(car).size());
@@ -127,6 +132,7 @@ public class GameController implements CarObserver {
     }
 
     private void dragDetected(MouseEvent event, int col, int row, Rectangle rectangle) {
+        coordinator.getInactivityNotifier().startTimer();
         if (board.getCarAt(row, col) != null) {
             selectedRectangle = rectangle;
             selectedCar = board.getCarAt(row, col);
