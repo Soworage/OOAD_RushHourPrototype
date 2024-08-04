@@ -1,31 +1,20 @@
 package application.controller;
 
 import application.model.PINManager;
-import application.view.SceneManager;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
-public class ResetController implements InitializableController {
+public class ResetController {
 
     private final PINManager pinManager;
     private final Coordinator coordinator;
-    @FXML
-    private Button buttonBack;
-    @FXML
-    private Button buttonAccept;
-    @FXML
-    private TextField codeInput;
 
     public ResetController(PINManager pinManager, Coordinator coordinator) {
         this.pinManager = pinManager;
         this.coordinator = coordinator;
     }
 
-    @FXML
-    void onAcceptButtonPress(ActionEvent event) {
-        if (pinManager.userEnterPIN(codeInput.getText())) {
+
+    public void processPinCode(String pinCode) {
+        if (pinManager.userEnterPIN(pinCode)) {
             System.out.println("Service member initiated a game reset");
             coordinator.showMainMenu();
         } else {
@@ -34,13 +23,7 @@ public class ResetController implements InitializableController {
         }
     }
 
-    @FXML
-    void onBackButtonPress(ActionEvent event) {
+    public void goBackToMainMenu() {
         coordinator.showMainMenu();
-    }
-
-    @Override
-    public void initializeWithSceneManager(SceneManager sceneManager) {
-        // This method can be used if needed
     }
 }
