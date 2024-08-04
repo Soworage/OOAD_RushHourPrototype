@@ -9,4 +9,5 @@ module RushHourPrototype {
     opens application to javafx.graphics, javafx.fxml, javafx.base;
     opens application.controller to javafx.fxml, javafx.graphics;
     opens application.model to javafx.fxml, javafx.graphics, javafx.base;
+    opens application.view to javafx.fxml, javafx.graphics;
 }

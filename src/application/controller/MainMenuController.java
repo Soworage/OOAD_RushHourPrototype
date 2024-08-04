@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.model.MenuType;
+import application.model.UserInterfaceAdapter;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,19 +12,19 @@ public class MainMenuController {
     private Button settingsButton;
     @FXML
     private Button buttonStart;
-    private UserInterface userInterface;
+    private UserInterfaceAdapter userInterfaceAdapter;
 
     @FXML
     void onButtonPress(ActionEvent event) {
-        userInterface.showMenu(MenuType.DIFFICULTY_MENU);
+        userInterfaceAdapter.showMenu(MenuType.DIFFICULTY_MENU);
     }
 
     public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+        userInterfaceAdapter = new UserInterfaceAdapter(userInterface);
     }
 
     @FXML
     void onSettingsButtonPress(ActionEvent event) {
-        userInterface.showMenu(MenuType.RESETPIN_MENU);
+        userInterfaceAdapter.showMenu(MenuType.RESETPIN_MENU);
     }
 }

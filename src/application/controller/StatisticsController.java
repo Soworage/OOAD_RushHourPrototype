@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.model.MenuType;
+import application.model.UserInterfaceAdapter;
 import application.model.UserStatistic;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
@@ -16,7 +17,7 @@ public class StatisticsController {
     @FXML
     private Button buttonSaveNo;
     private UserStatistic userStatistic;
-    private UserInterface userInterface;
+    private UserInterfaceAdapter userInterfaceAdapter;
 
     @FXML
     private Label valueMoves;
@@ -25,7 +26,7 @@ public class StatisticsController {
     private Label valueTime;
 
     public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+        userInterfaceAdapter = new UserInterfaceAdapter(userInterface);
     }
 
     public void setUserStatistic(UserStatistic userStatistic) {
@@ -41,17 +42,17 @@ public class StatisticsController {
 
     @FXML
     void onButtonPressNo(ActionEvent event) {
-        userInterface.showMenu(MenuType.HIGHSCORE_MENU);
+        userInterfaceAdapter.showMenu(MenuType.HIGHSCORE_MENU);
     }
 
     @FXML
     void onButtonPressYes(ActionEvent event) {
-        userInterface.showMenu(MenuType.INPUTNAME_MENU);
+        userInterfaceAdapter.showMenu(MenuType.INPUTNAME_MENU);
     }
 
     @FXML
     void onButtonPressMainMenu(ActionEvent event) {
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        userInterfaceAdapter.showMenu(MenuType.MAIN_MENU);
     }
 
 

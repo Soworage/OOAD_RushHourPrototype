@@ -1,9 +1,6 @@
 package application.controller;
 
-import application.model.HighscoreEntry;
-import application.model.HighscoreTable;
-import application.model.MenuType;
-import application.model.UserStatistic;
+import application.model.*;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +16,7 @@ public class InputNameController {
     @FXML
     private Button buttonSave;
     private UserStatistic userStatistic;
-    private UserInterface userInterface;
+    private UserInterfaceAdapter userInterfaceAdapter;
     private HighscoreTable highscoreTable;
     @FXML
     private TextField nameInputField;
@@ -29,7 +26,7 @@ public class InputNameController {
     }
 
     public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+        userInterfaceAdapter = new UserInterfaceAdapter(userInterface);
     }
 
     public void setHighscoreTable(HighscoreTable highscoreTable) {
@@ -47,12 +44,12 @@ public class InputNameController {
                 String.valueOf(userStatistic.getSeconds())
         );
         highscoreTable.addEntry(entry);
-        userInterface.showMenu(MenuType.HIGHSCORE_MENU);
+        userInterfaceAdapter.showMenu(MenuType.HIGHSCORE_MENU);
     }
 
     @FXML
     void onPressBackToMainMenuButton(ActionEvent event) {
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        userInterfaceAdapter.showMenu(MenuType.MAIN_MENU);
     }
 
 

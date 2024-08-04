@@ -1,10 +1,6 @@
 package application.controller;
 
-import application.model.HighscoreTable;
-import application.model.UserStatistic;
-import application.model.GameSettings;
-import application.model.HighscoreEntry;
-import application.model.MenuType;
+import application.model.*;
 import application.view.UserInterface;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +19,7 @@ public class HighscoreController {
     @FXML
     private Button mainMenuButton;
     private HighscoreTable highscoreTable;
-    private UserInterface userInterface;
+    private UserInterfaceAdapter userInterfaceAdapter;
     @FXML
     private Label DifficultyLabel;
     @FXML
@@ -44,12 +40,12 @@ public class HighscoreController {
     }
 
     public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+        userInterfaceAdapter = new UserInterfaceAdapter(userInterface);
     }
 
     @FXML
     void backToMainMenuPress(ActionEvent event) {
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        userInterfaceAdapter.showMenu(MenuType.MAIN_MENU);
     }
 
 

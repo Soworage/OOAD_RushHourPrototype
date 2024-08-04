@@ -1,6 +1,6 @@
 package application;
 
-import application.controller.GameLauncher;
+import application.view.GameLauncher;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

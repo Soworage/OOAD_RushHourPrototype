@@ -3,6 +3,7 @@ package application.controller;
 import application.model.Difficulty;
 import application.model.GameSettings;
 import application.model.MenuType;
+import application.model.UserInterfaceAdapter;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,33 +18,33 @@ public class DifficultySelectController {
     private Button mediumButton;
     @FXML
     private Button mainMenuButton;
-    private UserInterface userInterface;
+    private UserInterfaceAdapter userInterfaceAdapter;
 
     public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+        userInterfaceAdapter = new UserInterfaceAdapter(userInterface);
     }
 
     @FXML
     void onClickEasy(ActionEvent event) {
         GameSettings.getInstance().setDifficulty(Difficulty.EASY);
-        userInterface.showMenu(MenuType.COLORSCHEME_MENU);
+        userInterfaceAdapter.showMenu(MenuType.COLORSCHEME_MENU);
     }
 
     @FXML
     void onClickHard(ActionEvent event) {
         GameSettings.getInstance().setDifficulty(Difficulty.HARD);
-        userInterface.showMenu(MenuType.COLORSCHEME_MENU);
+        userInterfaceAdapter.showMenu(MenuType.COLORSCHEME_MENU);
     }
 
     @FXML
     void onClickMedium(ActionEvent event) {
         GameSettings.getInstance().setDifficulty(Difficulty.MEDIUM);
-        userInterface.showMenu(MenuType.COLORSCHEME_MENU);
+        userInterfaceAdapter.showMenu(MenuType.COLORSCHEME_MENU);
     }
 
     @FXML
     void onMainMenuButtonClick(ActionEvent event) {
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        userInterfaceAdapter.showMenu(MenuType.MAIN_MENU);
     }
 
 }

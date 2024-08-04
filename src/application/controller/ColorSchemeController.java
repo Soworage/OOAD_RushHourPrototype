@@ -2,6 +2,7 @@ package application.controller;
 
 import application.model.Color;
 import application.model.MenuType;
+import application.model.UserInterfaceAdapter;
 import application.view.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,12 +15,12 @@ public class ColorSchemeController {
     private Button mainMenuButton;
     @FXML
     private Button confirmButton;
-    private UserInterface userInterface;
+    private UserInterfaceAdapter userInterfaceAdapter;
     @FXML
     private ComboBox<Color> comboBox;
 
     public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+        userInterfaceAdapter = new UserInterfaceAdapter(userInterface);
     }
 
     @FXML
@@ -32,12 +33,12 @@ public class ColorSchemeController {
 
     @FXML
     void onClickConfirm(ActionEvent event) {
-        userInterface.showMenu(MenuType.GAME_MENU);
+        userInterfaceAdapter.showMenu(MenuType.GAME_MENU);
     }
 
     @FXML
     void onClickMainMenuButton(ActionEvent event) {
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        userInterfaceAdapter.showMenu(MenuType.MAIN_MENU);
     }
 
 }

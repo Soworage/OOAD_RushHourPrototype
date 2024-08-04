@@ -6,5 +6,4 @@ public class PINManager {
         String pin = "0815";
         return enteredPIN.equals(pin);
     }
-
 }

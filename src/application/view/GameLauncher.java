@@ -1,7 +1,6 @@
-package application.controller;
+package application.view;
 
 import application.model.MenuType;
-import application.view.UserInterface;
 import javafx.stage.Stage;
 
 public class GameLauncher {

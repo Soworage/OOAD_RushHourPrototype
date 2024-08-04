@@ -1,14 +1,6 @@
 package application.controller;
 
-import application.model.UserStatistic;
-import application.model.Board;
-import application.model.BoardManager;
-import application.model.Car;
-import application.model.CarObserver;
-import application.model.Direction;
-import application.model.GameSettings;
-import application.model.Difficulty;
-import application.model.MenuType;
+import application.model.*;
 import application.view.UserInterface;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -45,7 +37,7 @@ public class GameController implements CarObserver {
     private UserStatistic statistic;
     private Timeline secondsCounter;
 
-    private UserInterface userInterface;
+    private UserInterfaceAdapter userInterfaceAdapter;
     @FXML
     private Label moveCountLabel;
     @FXML
@@ -62,13 +54,13 @@ public class GameController implements CarObserver {
     }
 
     public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+        userInterfaceAdapter  = new UserInterfaceAdapter(userInterface);
     }
 
     @FXML
     void backToMenuButton(ActionEvent event) {
         secondsCounter.stop();
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        userInterfaceAdapter.showMenu(MenuType.MAIN_MENU);
     }
 
 
@@ -311,7 +303,7 @@ public class GameController implements CarObserver {
             if (carRow == WINNING_ROW && carCol == WINNING_COL) {
                 System.out.println("You won!");
                 secondsCounter.stop();
-                userInterface.showMenu(MenuType.STATISTICS_MENU);
+                userInterfaceAdapter.showMenu(MenuType.STATISTICS_MENU);
             }
         }
     }
