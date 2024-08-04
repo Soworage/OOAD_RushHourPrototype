@@ -4,10 +4,10 @@ public class GameSettings {
 
     private static GameSettings instance;
     private Difficulty difficulty;
+    private Color colorScheme;
 
     private GameSettings() {
     }
-
 
     public static GameSettings getInstance() {
         if (instance == null) {
@@ -24,9 +24,17 @@ public class GameSettings {
         this.difficulty = difficulty;
     }
 
+    public Color getColorScheme() {
+        return colorScheme;
+    }
+
+    public void setColorScheme(Color colorScheme) {
+        this.colorScheme = colorScheme;
+    }
+
     public void resetToDefault() {
         this.difficulty = null;
-        Color colorSetting = null;
+        this.colorScheme = null;
         System.out.println("GameSettings reset confirmed");
     }
 }

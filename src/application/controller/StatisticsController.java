@@ -1,38 +1,39 @@
 package application.controller;
 
-import application.model.MenuType;
 import application.model.UserStatistic;
-import application.view.UserInterface;
+import application.view.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class StatisticsController {
+public class StatisticsController implements InitializableController {
+
+    private final UserStatistic userStatistic;
+    private final Coordinator coordinator;
     @FXML
     private Button buttonSaveYes;
     @FXML
     private Button mainMenuButton;
     @FXML
     private Button buttonSaveNo;
-    private UserStatistic userStatistic;
-    private UserInterface userInterface;
-
     @FXML
     private Label valueMoves;
-
     @FXML
     private Label valueTime;
 
-    public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+    public StatisticsController(UserStatistic userStatistic, Coordinator coordinator) {
+        this.userStatistic = userStatistic;
+        this.coordinator = coordinator;
     }
 
-    public void setUserStatistic(UserStatistic userStatistic) {
-        this.userStatistic = userStatistic;
+    @Override
+    public void initializeWithSceneManager(SceneManager sceneManager) {
+        // Not used, handled by coordinator
     }
 
     public void postInit() {
+        // Display user statistics
         valueMoves.setText(String.valueOf(userStatistic.getMoveCount()));
         int minutes = userStatistic.getSeconds() / 60;
         int secs = userStatistic.getSeconds() % 60;
@@ -41,18 +42,16 @@ public class StatisticsController {
 
     @FXML
     void onButtonPressNo(ActionEvent event) {
-        userInterface.showMenu(MenuType.HIGHSCORE_MENU);
+        coordinator.showHighScoreMenu();
     }
 
     @FXML
     void onButtonPressYes(ActionEvent event) {
-        userInterface.showMenu(MenuType.INPUTNAME_MENU);
+        coordinator.showInputNameMenu();
     }
 
     @FXML
     void onButtonPressMainMenu(ActionEvent event) {
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        coordinator.showMainMenu();
     }
-
-
 }

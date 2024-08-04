@@ -2,9 +2,8 @@ package application.controller;
 
 import application.model.HighscoreEntry;
 import application.model.HighscoreTable;
-import application.model.MenuType;
 import application.model.UserStatistic;
-import application.view.UserInterface;
+import application.view.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,27 +11,21 @@ import javafx.scene.control.TextField;
 
 import java.time.LocalDate;
 
-public class InputNameController {
+public class InputNameController implements InitializableController {
 
+    private final UserStatistic userStatistic;
+    private final Coordinator coordinator;
+    private final HighscoreTable highscoreTable;
     @FXML
     private Button mainMenuButton;
     @FXML
     private Button buttonSave;
-    private UserStatistic userStatistic;
-    private UserInterface userInterface;
-    private HighscoreTable highscoreTable;
     @FXML
     private TextField nameInputField;
 
-    public void setUserStatistic(UserStatistic userStatistic) {
+    public InputNameController(UserStatistic userStatistic, Coordinator coordinator, HighscoreTable highscoreTable) {
         this.userStatistic = userStatistic;
-    }
-
-    public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
-    }
-
-    public void setHighscoreTable(HighscoreTable highscoreTable) {
+        this.coordinator = coordinator;
         this.highscoreTable = highscoreTable;
     }
 
@@ -47,13 +40,16 @@ public class InputNameController {
                 String.valueOf(userStatistic.getSeconds())
         );
         highscoreTable.addEntry(entry);
-        userInterface.showMenu(MenuType.HIGHSCORE_MENU);
+        coordinator.showHighScoreMenu();
     }
 
     @FXML
     void onPressBackToMainMenuButton(ActionEvent event) {
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        coordinator.showMainMenu();
     }
 
-
+    @Override
+    public void initializeWithSceneManager(SceneManager sceneManager) {
+        // This method can be used if needed
+    }
 }

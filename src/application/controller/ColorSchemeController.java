@@ -1,25 +1,25 @@
 package application.controller;
 
 import application.model.Color;
-import application.model.MenuType;
-import application.view.UserInterface;
+import application.model.GameSettings;
+import application.view.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
-public class ColorSchemeController {
+public class ColorSchemeController implements InitializableController {
 
+    private final Coordinator coordinator;
     @FXML
     private Button mainMenuButton;
     @FXML
     private Button confirmButton;
-    private UserInterface userInterface;
     @FXML
     private ComboBox<Color> comboBox;
 
-    public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+    public ColorSchemeController(Coordinator coordinator) {
+        this.coordinator = coordinator;
     }
 
     @FXML
@@ -32,12 +32,18 @@ public class ColorSchemeController {
 
     @FXML
     void onClickConfirm(ActionEvent event) {
-        userInterface.showMenu(MenuType.GAME_MENU);
+        Color selectedColor = comboBox.getSelectionModel().getSelectedItem();
+        GameSettings.getInstance().setColorScheme(selectedColor);
+        coordinator.showGame();
     }
 
     @FXML
     void onClickMainMenuButton(ActionEvent event) {
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        coordinator.showMainMenu();
     }
 
+    @Override
+    public void initializeWithSceneManager(SceneManager sceneManager) {
+        // This method can be used if needed
+    }
 }

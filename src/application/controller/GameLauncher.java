@@ -1,19 +1,21 @@
 package application.controller;
 
-import application.model.MenuType;
-import application.view.UserInterface;
 import javafx.stage.Stage;
 
 public class GameLauncher {
 
     private final Stage primaryStage;
+    private Coordinator coordinator;
 
     public GameLauncher(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
     public void run() {
-        UserInterface userInterface = new UserInterface(primaryStage);
-        userInterface.showMenu(MenuType.MAIN_MENU);
+        // Initialize Coordinator with the primary stage
+        coordinator = new Coordinator(primaryStage);
+
+        // Start the application by showing the main menu
+        coordinator.start();
     }
 }

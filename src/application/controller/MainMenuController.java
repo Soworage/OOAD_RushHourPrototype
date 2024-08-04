@@ -1,29 +1,35 @@
 package application.controller;
 
 import application.model.MenuType;
-import application.view.UserInterface;
+import application.view.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class MainMenuController {
+public class MainMenuController implements InitializableController {
+
+    private final Coordinator coordinator;
     @FXML
     private Button settingsButton;
     @FXML
     private Button buttonStart;
-    private UserInterface userInterface;
+
+    public MainMenuController(Coordinator coordinator) {
+        this.coordinator = coordinator;
+    }
 
     @FXML
     void onButtonPress(ActionEvent event) {
-        userInterface.showMenu(MenuType.DIFFICULTY_MENU);
-    }
-
-    public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+        coordinator.showDifficultyMenu();
     }
 
     @FXML
     void onSettingsButtonPress(ActionEvent event) {
-        userInterface.showMenu(MenuType.RESETPIN_MENU);
+        coordinator.showResetPinMenu();
+    }
+
+    @Override
+    public void initializeWithSceneManager(SceneManager sceneManager) {
+
     }
 }
