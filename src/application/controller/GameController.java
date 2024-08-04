@@ -52,7 +52,7 @@ public class GameController implements CarObserver {
         board.makeReadyForUse();
         statistic.setSelectedBoard(board);
 
-        secondsCounter = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));
+        secondsCounter = new Timeline(new KeyFrame(Duration.seconds(1), _ -> updateTimer()));
         secondsCounter.setCycleCount(Timeline.INDEFINITE);
         secondsCounter.play();
 
@@ -104,7 +104,7 @@ public class GameController implements CarObserver {
                 Car car = board.getCarAt(row, col);
                 if (car != null) {
                     rectangle.setFill(car.getCarColor());
-                    carRectangleMap.computeIfAbsent(car, k -> new ArrayList<>()).add(rectangle);
+                    carRectangleMap.computeIfAbsent(car, _ -> new ArrayList<>()).add(rectangle);
                 }
 
                 rectangle.setStroke(Color.BLACK);
@@ -117,7 +117,7 @@ public class GameController implements CarObserver {
         }
     }
 
-    private void handleRectangleClick(MouseEvent event, int col, int row) {
+    private void handleRectangleClick(int col, int row) {
         if (selectedCar != null) {
             Car car = board.getCarAt(row, col);
             System.out.println(carRectangleMap.get(car).size());
@@ -159,12 +159,12 @@ public class GameController implements CarObserver {
     }
 
     private void registerEvents(Rectangle rectangle, int col, int row) {
-        rectangle.setOnMouseClicked(event -> handleRectangleClick(event, col, row));
+        rectangle.setOnMouseClicked(_ -> handleRectangleClick(col, row));
         rectangle.setOnDragDetected(mouseEvent -> dragDetected(mouseEvent, col, row, rectangle));
-        rectangle.setOnDragDone(event -> dragEnded(event, col, row));
+        rectangle.setOnDragDone(this::dragEnded);
         rectangle.setOnDragOver(this::handleDragOver);
         rectangle.setOnDragEntered(this::handleDragEntered);
-        rectangle.setOnDragDropped(event -> handleDragDropped(event, col, row));
+        rectangle.setOnDragDropped(this::handleDragDropped);
     }
 
     private boolean isMoveOnBoardLegit(int newRow, int newCol) {
@@ -176,7 +176,12 @@ public class GameController implements CarObserver {
             return false;
         }
 
-        return !isPositionBlocked(newRow, newCol);
+        if (isPositionBlocked(newRow, newCol)) {
+            return false;
+        }
+
+        return !isPathBlocked(newRow, newCol);
+
     }
 
     private boolean isDirectionCorrect(int newRow, int newCol) {
@@ -209,6 +214,63 @@ public class GameController implements CarObserver {
             }
         }
         return false;
+    }
+
+    private boolean isPathBlocked(int newRow, int newCol) {
+        int currentRow = GridPane.getRowIndex(selectedRectangle);
+        int currentCol = GridPane.getColumnIndex(selectedRectangle);
+
+        int selectedIndex = selectedRectangleList.indexOf(selectedRectangle);
+
+        // Check for horizontal movement
+        if (selectedCar.getDirection() == Direction.HORIZONTAL) {
+            int moveDistance = newCol - currentCol;
+            int maxDistance = calculateMaxDistance(currentRow, currentCol, selectedIndex, moveDistance, Direction.HORIZONTAL);
+
+            // Check if the desired move is within the allowable range
+            return Math.abs(moveDistance) > maxDistance;
+        } else if (selectedCar.getDirection() == Direction.VERTICAL) {
+            int moveDistance = newRow - currentRow;
+            int maxDistance = calculateMaxDistance(currentRow, currentCol, selectedIndex, moveDistance, Direction.VERTICAL);
+
+            // Check if the desired move is within the allowable range
+            return Math.abs(moveDistance) > maxDistance;
+        }
+
+        return false;
+    }
+
+    private int calculateMaxDistance(int currentRow, int currentCol, int selectedIndex, int moveDistance, Direction direction) {
+        int maxDistance = 0;
+        int start, step, limit;
+        boolean isHorizontal = (direction == Direction.HORIZONTAL);
+
+        if (isHorizontal) {
+            start = currentCol - selectedIndex;
+            limit = currentRow; // Use currentRow as the fixed coordinate
+        } else {
+            start = currentRow - selectedIndex;
+            limit = currentCol; // Use currentCol as the fixed coordinate
+        }
+
+        step = Integer.signum(moveDistance);
+
+        if (step != 0) {
+            for (int i = start + step; i >= 0 && i < GRID_SIZE; i += step) {
+                if (isBlockedAtPosition(isHorizontal ? limit : i, isHorizontal ? i : limit)) {
+                    break;
+                }
+                maxDistance++;
+            }
+        }
+
+        return maxDistance;
+    }
+
+
+    private boolean isBlockedAtPosition(int row, int col) {
+        Car carAtPosition = board.getCarAt(row, col);
+        return carAtPosition != null && carAtPosition != selectedCar;
     }
 
     private int[] calculatePosition(int newRow, int newCol, int index) {
@@ -255,7 +317,7 @@ public class GameController implements CarObserver {
     }
 
 
-    private void handleDragDropped(DragEvent event, int col, int row) {
+    private void handleDragDropped(DragEvent event) {
         if (event.getDragboard().hasString() && selectedRectangle != null) {
             int targetRow = GridPane.getRowIndex(selectedRectangleList.getFirst());
             int targetCol = GridPane.getColumnIndex(selectedRectangleList.getFirst());
@@ -271,7 +333,7 @@ public class GameController implements CarObserver {
         event.consume();
     }
 
-    private void dragEnded(DragEvent event, int col, int row) {
+    private void dragEnded(DragEvent event) {
         if (event.getTransferMode() == TransferMode.MOVE) {
             selectedRectangleList = null;
             selectedCar = null;
