@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EasyBoardCreator implements BoardCreatorInterface{
+public class EasyBoardCreator implements BoardCreatorInterface {
     private final List<Board> boards;
     private final Map<Integer, HighscoreTable> highscoreTables;
 
@@ -16,6 +16,7 @@ public class EasyBoardCreator implements BoardCreatorInterface{
         highscoreTables = new HashMap<>();
         populateBoards();
     }
+
     @Override
     public Board getBoard() {
         // impelemtend random number generator for finished product

@@ -7,15 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HardBoardCreator implements BoardCreatorInterface{
+public class HardBoardCreator implements BoardCreatorInterface {
     private final List<Board> boards;
     private final Map<Integer, HighscoreTable> highscoreTables;
 
-    public HardBoardCreator(){
+    public HardBoardCreator() {
         boards = new ArrayList<>();
         highscoreTables = new HashMap<>();
         populateBoards();
     }
+
     @Override
     public Board getBoard() {
         // impelemtend random number generator for finished product
@@ -27,7 +28,7 @@ public class HardBoardCreator implements BoardCreatorInterface{
         return highscoreTables.get(boardId);
     }
 
-    private void populateBoards(){
+    private void populateBoards() {
         List<Car> cars = List.of(
                 new Car.Builder()
                         .setXPosition(0)

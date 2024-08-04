@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MediumBoardCreator implements BoardCreatorInterface{
+public class MediumBoardCreator implements BoardCreatorInterface {
     private final List<Board> boards;
     private final Map<Integer, HighscoreTable> highscoreTables;
 
@@ -28,7 +28,7 @@ public class MediumBoardCreator implements BoardCreatorInterface{
         return highscoreTables.get(boardId);
     }
 
-    private void populateBoards(){
+    private void populateBoards() {
         List<Car> cars = List.of(
                 new Car.Builder()
                         .setXPosition(1)
