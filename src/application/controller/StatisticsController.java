@@ -3,13 +3,21 @@ package application.controller;
 import application.model.UserStatistic;
 import application.view.StatisticsView;
 
-/* Hauptverantwortlicher: Alex Becker */
-/* Mitwirkend: Matthias Henzel, Alex Mihel */
-
 /**
- * Die Klasse StatisticsController ist verantwortlich für die Verwaltung der Anzeige von Benutzerstatistiken.
- * Sie ermöglicht die Aktualisierung der Statistikansicht und die Navigation zwischen verschiedenen Menüs basierend auf Benutzereingaben.
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Alex Becker</li>
+ * </ul>
+ * <p>Mitwirkende:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ *     <li>Alex Mihel</li>
+ * </ul>
+ *
+ * <p>Die Klasse StatisticsController ist verantwortlich für die Verwaltung der Anzeige von Benutzerstatistiken.
+ * Sie ermöglicht die Aktualisierung der Statistikansicht und die Navigation zwischen verschiedenen Menüs basierend auf Benutzereingaben.</p>
  */
+
 public class StatisticsController {
 
     private final UserStatistic userStatistic;

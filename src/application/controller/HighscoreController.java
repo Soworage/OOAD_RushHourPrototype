@@ -11,13 +11,21 @@ import application.view.HighscoreView;
 import java.util.Comparator;
 import java.util.List;
 
-/* Hauptverantwortlicher: Alex Becker */
-/* Mitwirkend: Matthias Henzel, Erik Witte */
-
 /**
- * Die Klasse HighscoreController ist verantwortlich für die Verwaltung der Highscore-Ansicht.
- * Sie ermöglicht die Anzeige der Highscore-Tabelle und die Navigation zurück zum Hauptmenü.
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Alex Becker</li>
+ * </ul>
+ * <p>Mitwirkende:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ *     <li>Erik Witte</li>
+ * </ul>
+ *
+ * <p>Die Klasse HighscoreController ist verantwortlich für die Verwaltung der Highscore-Ansicht.
+ * Sie ermöglicht die Anzeige der Highscore-Tabelle und die Navigation zurück zum Hauptmenü.</p>
  */
+
 public class HighscoreController {
     private final UserStatistic userStatistic;
     private final Coordinator coordinator;

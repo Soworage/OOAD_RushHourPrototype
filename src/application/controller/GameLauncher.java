@@ -2,13 +2,20 @@ package application.controller;
 
 import javafx.stage.Stage;
 
-/* Hauptverantwortlicher: Alex Mihel */
-/* Mitwirkend: Alex Becker */
-
 /**
- * Die Klasse GameLauncher ist verantwortlich für das Starten der Anwendung.
- * Sie initialisiert die Hauptbühne und den Koordinator der Anwendung.
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Alex Mihel</li>
+ * </ul>
+ * <p>Mitwirkende:</p>
+ * <ul>
+ *     <li>Alex Becker</li>
+ * </ul>
+ *
+ * <p>Die Klasse GameLauncher ist verantwortlich für das Starten der Anwendung.
+ * Sie initialisiert die Hauptbühne und den Koordinator der Anwendung.</p>
  */
+
 public class GameLauncher {
 
     private final Stage primaryStage;

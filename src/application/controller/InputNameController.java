@@ -5,14 +5,21 @@ import application.model.HighscoreTable;
 import application.model.UserStatistic;
 
 import java.time.LocalDate;
-/* Hauptverantwortlicher: Alex Becker */
-/* Mitwirkend: Matthias Henzel */
-
 /**
- * Die Klasse InputNameController ist verantwortlich für die Handhabung der Eingabe von Benutzernamen
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Alex Becker</li>
+ * </ul>
+ * <p>Mitwirkende:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ * </ul>
+ *
+ * <p>Die Klasse InputNameController ist verantwortlich für die Handhabung der Eingabe von Benutzernamen
  * und das Speichern der Benutzerstatistiken in der Highscore-Tabelle.
- * Sie ermöglicht auch die Navigation zurück zum Hauptmenü.
+ * Sie ermöglicht auch die Navigation zurück zum Hauptmenü.</p>
  */
+
 public class InputNameController {
 
     private final UserStatistic userStatistic;

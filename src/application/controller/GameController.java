@@ -26,14 +26,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/* Hauptverantwortlicher: Alex Becker */
-/* Mitwirkend: Matthias Henzel */
-
 /**
- * Die Klasse GameController steuert die Logik und Interaktion innerhalb des Spiels.
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Alex Becker</li>
+ * </ul>
+ * <p>Mitwirkende:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ * </ul>
+ *
+ * <p>Die Klasse GameController steuert die Logik und Interaktion innerhalb des Spiels.
  * Sie ist verantwortlich für die Verwaltung des Spielbretts, die Aktualisierung der
- * Spielstatistiken und die Handhabung von Drag-and-Drop-Ereignissen zum Verschieben von Autos.
+ * Spielstatistiken und die Handhabung von Drag-and-Drop-Ereignissen zum Verschieben von Autos.</p>
  */
+
 public class GameController implements CarObserver {
 
     private static final int GRID_SIZE = 6;

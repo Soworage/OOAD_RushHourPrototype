@@ -3,10 +3,16 @@ package application.controller;
 import application.model.Difficulty;
 import application.model.GameSettings;
 
-/* Hauptverantwortlicher: Alex Becker */
-/* Mitwirkend: Alex Mihel, Matthias Henzel */
-
 /**
+  * <p>Hauptverantwortlicher:</p>
+ *  * <ul>
+   *     <li>Alex Becker</li>
+  * </ul>
+   * <p>Mitwirkende:</p>
+   * <ul>
+   *     <li>Alex Mihel</li>
+   *     <li>Matthias Henzel</li>
+   * </ul>
  * Die Klasse DifficultySelectController ist verantwortlich für die Verwaltung
  * der Auswahl des Schwierigkeitsgrades innerhalb der Anwendung. Sie ermöglicht
  * das Setzen des Schwierigkeitsgrades und die Navigation zu weiteren Menüs.

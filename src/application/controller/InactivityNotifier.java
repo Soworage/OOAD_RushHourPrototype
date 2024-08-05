@@ -4,14 +4,18 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
-/* Hauptverantwortlicher: Matthias Henzel */
-
 /**
- * Die Klasse InactivityNotifier überwacht die Inaktivität des Benutzers
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ * </ul>
+ *
+ * <p>Die Klasse InactivityNotifier überwacht die Inaktivität des Benutzers
  * und führt entsprechende Aktionen aus, wenn ein bestimmter Zeitraum ohne Interaktion vergeht.
  * Sie benachrichtigt den Benutzer nach einer bestimmten Zeit der Inaktivität
- * und kehrt nach einer längeren Zeit zum Hauptmenü zurück.
+ * und kehrt nach einer längeren Zeit zum Hauptmenü zurück.</p>
  */
+
 public class InactivityNotifier {
     private static final int NOTIFY_INACTIVITY_SECONDS = 180; // 3 Minuten
     private static final int RETURN_TO_MAIN_MENU_SECONDS = 300; // 5 Minuten

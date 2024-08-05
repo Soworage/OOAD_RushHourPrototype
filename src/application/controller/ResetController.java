@@ -2,12 +2,16 @@ package application.controller;
 
 import application.model.PINManager;
 
-/* Hauptverantwortlicher: Alex Becker */
-
 /**
- * Die Klasse ResetController ist verantwortlich für die Verwaltung des PIN-Reset-Vorgangs.
- * Sie verarbeitet die Eingabe des PIN-Codes und führt entsprechende Aktionen basierend auf der Validität des Codes durch.
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Alex Becker</li>
+ * </ul>
+ *
+ * <p>Die Klasse ResetController ist verantwortlich für die Verwaltung des PIN-Reset-Vorgangs.
+ * Sie verarbeitet die Eingabe des PIN-Codes und führt entsprechende Aktionen basierend auf der Validität des Codes durch.</p>
  */
+
 public class ResetController {
 
     private final PINManager pinManager;

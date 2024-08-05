@@ -3,13 +3,19 @@ package application.controller;
 import application.model.Color;
 import application.model.GameSettings;
 
-/* Hauptverantwortlicher: Alex Becker */
-/* Mitwirkend: Matthias Henzel */
-
 /**
- * Die Klasse ColorSchemeController ist verantwortlich für die Verwaltung
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Alex Becker</li>
+ * </ul>
+ * <p>Mitwirkende:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ * </ul>
+ *
+ * <p>Die Klasse ColorSchemeController ist verantwortlich für die Verwaltung
  * der Farbschema-Auswahl innerhalb der Anwendung. Sie ermöglicht das
- * Setzen des ausgewählten Farbschemas und die Navigation zwischen den Menüs.
+ * Setzen des ausgewählten Farbschemas und die Navigation zwischen den Menüs.</p>
  */
 public class ColorSchemeController {
 

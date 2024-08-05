@@ -17,13 +17,16 @@ import application.view.MainMenuView;
 import application.view.SceneManager;
 import javafx.stage.Stage;
 
-/* Hauptverantwortlicher: Matthias Henzel */
-
 /**
- * Die Klasse Coordinator ist verantwortlich für die Koordination der verschiedenen
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ * </ul>
+ *
+ * <p>Die Klasse Coordinator ist verantwortlich für die Koordination der verschiedenen
  * Teile der Anwendung. Sie verwaltet die Navigation zwischen den verschiedenen
  * Menüs und Spielansichten und stellt sicher, dass die richtigen Controller
- * und Views initialisiert und angezeigt werden.
+ * und Views initialisiert und angezeigt werden.</p>
  */
 public class Coordinator {
     private final SceneManager sceneManager;

@@ -1,12 +1,19 @@
 package application.controller;
 
-/* Hauptverantwortlicher: Alex Becker */
-/* Mitwirkend: Matthias Henzel */
-
 /**
- * Die Klasse MainMenuController ist verantwortlich für die Verwaltung der Interaktionen im Hauptmenü.
- * Sie behandelt Benutzereingaben und navigiert zu den entsprechenden Menüs.
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Alex Becker</li>
+ * </ul>
+ * <p>Mitwirkende:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ * </ul>
+ *
+ * <p>Die Klasse MainMenuController ist verantwortlich für die Verwaltung der Interaktionen im Hauptmenü.
+ * Sie behandelt Benutzereingaben und navigiert zu den entsprechenden Menüs.</p>
  */
+
 public class MainMenuController {
 
     private final Coordinator coordinator;
