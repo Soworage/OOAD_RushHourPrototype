@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 
+/* Hauptverantwortlicher: Matthias Henzel */
 public class HighscoreView implements InitializableController {
 
     private HighscoreController highscoreController;

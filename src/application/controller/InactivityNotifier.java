@@ -4,6 +4,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
+/* Hauptverantwortlicher: Matthias Henzel */
 public class InactivityNotifier {
     private static final int NOTIFY_INACTIVITY_SECONDS = 180; // 3 minutes
     private static final int RETURN_TO_MAIN_MENU_SECONDS = 300; // 5 minutes

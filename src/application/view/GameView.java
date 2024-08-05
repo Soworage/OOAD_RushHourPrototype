@@ -10,6 +10,7 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
+/* Hauptverantwortlicher: Matthias Henzel */
 public class GameView implements InitializableController {
 
     @FXML

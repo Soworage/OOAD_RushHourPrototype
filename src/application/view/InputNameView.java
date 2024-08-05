@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/* Hauptverantwortlicher: Matthias Henzel */
 public class InputNameView implements InitializableController {
 
     private InputNameController inputNameController;

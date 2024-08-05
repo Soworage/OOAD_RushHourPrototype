@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+/* Hauptverantwortlicher: Matthias Henzel */
 public class StatisticsView implements InitializableController {
 
     private StatisticsController statisticsController;
@@ -48,6 +49,5 @@ public class StatisticsView implements InitializableController {
 
     @Override
     public void initializeWithSceneManager(SceneManager sceneManager) {
-        // Initialization logic if needed
     }
 }
