@@ -84,6 +84,7 @@ public class GameController implements CarObserver {
     public void handleBackToMenu() {
         if (secondsCounter != null) {
             secondsCounter.stop();
+            statistic.setToDefault();
         }
         coordinator.showMainMenu();
     }

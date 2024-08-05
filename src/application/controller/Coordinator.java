@@ -103,6 +103,7 @@ public class Coordinator {
     public void showStatistics() {
         StatisticsView statisticsView = new StatisticsView();
         StatisticsController statisticsController = new StatisticsController(userStatistic, this, statisticsView);
+
         sceneManager.setController(statisticsView);
         sceneManager.showMenu(MenuType.STATISTICS_MENU);
         statisticsController.postInit();

@@ -47,7 +47,6 @@ public class HighscoreView implements InitializableController {
 
     @Override
     public void initializeWithSceneManager(SceneManager sceneManager) {
-        // Initialization logic if needed
     }
 
     public void initializeTableColumns() {
