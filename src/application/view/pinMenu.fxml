@@ -5,11 +5,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="134.0" text="Bitte PIN eingeben" />
-        <TextField fx:id="codeInput" layoutX="14.0" layoutY="46.0" prefHeight="25.0" prefWidth="134.0" />
-        <Button fx:id="buttonAccept" layoutX="14.0" layoutY="86.0" mnemonicParsing="false" onAction="#onAcceptButtonPress" prefHeight="25.0" prefWidth="134.0" text="Bestätigen" />
-        <Button fx:id="buttonBack" layoutX="16.0" layoutY="154.0" mnemonicParsing="false" onAction="#onBackButtonPress" prefHeight="25.0" prefWidth="134.0" text="Zurück" />
+        <Label layoutX="572.0" layoutY="278.0" prefHeight="17.0" prefWidth="134.0" text="Bitte PIN eingeben" />
+        <TextField fx:id="codeInput" layoutX="572.0" layoutY="310.0" prefHeight="25.0" prefWidth="134.0" />
+        <Button fx:id="buttonAccept" layoutX="572.0" layoutY="350.0" mnemonicParsing="false" onAction="#onAcceptButtonPress" prefHeight="25.0" prefWidth="134.0" text="Bestätigen" />
+        <Button fx:id="buttonBack" layoutX="574.0" layoutY="418.0" mnemonicParsing="false" onAction="#onBackButtonPress" prefHeight="25.0" prefWidth="134.0" text="Zurück" />
     </children>
 </AnchorPane>
