@@ -4,6 +4,9 @@ package application.model;
 import java.util.HashMap;
 import java.util.Map;
 
+/* Hauptverantwortlicher: Erik Witte */
+/* Mitwirkend: Alex Becker, Alex Mihel */
+
 public class BoardManager {
 
     private final Map<Difficulty, BoardCreatorInterface> boardCreators;

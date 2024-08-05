@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
 /* Hauptverantwortlicher: Matthias Henzel */
+/* Mitwirkend: Alex Becker */
 public class GameView implements InitializableController {
 
     @FXML

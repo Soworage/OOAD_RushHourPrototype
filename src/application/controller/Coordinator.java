@@ -18,6 +18,7 @@ import application.view.SceneManager;
 import javafx.stage.Stage;
 
 /* Hauptverantwortlicher: Matthias Henzel */
+
 public class Coordinator {
     private final SceneManager sceneManager;
     private final BoardManager boardManager;

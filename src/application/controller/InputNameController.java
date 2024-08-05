@@ -5,7 +5,8 @@ import application.model.HighscoreTable;
 import application.model.UserStatistic;
 
 import java.time.LocalDate;
-
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel */
 public class InputNameController {
 
     private final UserStatistic userStatistic;

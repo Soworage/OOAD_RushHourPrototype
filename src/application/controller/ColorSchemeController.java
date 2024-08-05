@@ -3,6 +3,9 @@ package application.controller;
 import application.model.Color;
 import application.model.GameSettings;
 
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel */
+
 public class ColorSchemeController {
 
     private final Coordinator coordinator;

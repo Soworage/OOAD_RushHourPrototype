@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 /* Hauptverantwortlicher: Matthias Henzel */
+/* Mitwirkend: Alex Becker, Erik Witte */
 public class ResetView implements InitializableController {
 
     private ResetController resetController;

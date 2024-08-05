@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+/* Hauptverantwortlicher: Erik Witte */
+/* Mitwirkend: Alex Becker */
 
 public class HardBoardCreator implements BoardCreatorInterface {
     private final List<Board> boards;

@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel */
 public class GameController implements CarObserver {
 
     private static final int GRID_SIZE = 6;

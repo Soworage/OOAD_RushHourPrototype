@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 /* Hauptverantwortlicher: Matthias Henzel */
+/* Mitwirkend: Alex Becker */
 public class StatisticsView implements InitializableController {
 
     private StatisticsController statisticsController;

@@ -3,7 +3,8 @@ package application.controller;
 import application.model.Difficulty;
 import application.model.GameSettings;
 
-
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Alex Mihel, Matthias Henzel */
 public class DifficultySelectController {
     private final Coordinator coordinator;
 

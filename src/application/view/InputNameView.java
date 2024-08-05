@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 /* Hauptverantwortlicher: Matthias Henzel */
+/* Mitwirkend: Alex Becker, Alex Mihel */
 public class InputNameView implements InitializableController {
 
     private InputNameController inputNameController;

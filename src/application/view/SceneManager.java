@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/* Hauptverantwortlicher: Matthias Henzel */
 public class SceneManager {
 
     private final Stage primaryStage;

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Alex Mihel, Matthias Henzel, Erik Witte */
 public class Board implements Cloneable {
 
     private final int width;

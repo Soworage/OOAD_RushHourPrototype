@@ -1,5 +1,8 @@
 package application.model;
 
+
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel, Alex Mihel*/
 public class UserStatistic {
 
     private static UserStatistic instance;

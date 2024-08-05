@@ -2,6 +2,9 @@ package application.controller;
 
 import javafx.stage.Stage;
 
+/* Hauptverantwortlicher: Alex Mihel */
+/* Mitwirkend: Alex Becker */
+
 public class GameLauncher {
 
     private final Stage primaryStage;

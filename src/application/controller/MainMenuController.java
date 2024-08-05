@@ -1,6 +1,7 @@
 package application.controller;
 
-
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel */
 public class MainMenuController {
 
     private final Coordinator coordinator;

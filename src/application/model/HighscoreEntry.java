@@ -1,6 +1,9 @@
 package application.model;
 
 import java.time.LocalDate;
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel, Alex Mihel*/
+
 
 public class HighscoreEntry {
 

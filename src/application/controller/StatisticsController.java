@@ -3,6 +3,9 @@ package application.controller;
 import application.model.UserStatistic;
 import application.view.StatisticsView;
 
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel, Alex Mihel */
+
 public class StatisticsController {
 
     private final UserStatistic userStatistic;

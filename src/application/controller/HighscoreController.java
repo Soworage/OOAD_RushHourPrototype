@@ -11,6 +11,9 @@ import application.view.HighscoreView;
 import java.util.Comparator;
 import java.util.List;
 
+
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel, Erik Witte */
 public class HighscoreController {
     private final UserStatistic userStatistic;
     private final Coordinator coordinator;

@@ -3,6 +3,8 @@ package application.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Hauptverantwortlicher: Alex Becker */
+/* Mitwirkend: Matthias Henzel, Alex Mihel*/
 public class HighscoreTable {
 
     private final List<HighscoreEntry> highscoreList;

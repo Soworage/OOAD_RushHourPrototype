@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
 /* Hauptverantwortlicher: Matthias Henzel */
+/* Mitwirkend: Alex Becker, Erik Witte */
 public class ColorSchemeView implements InitializableController {
 
     private ColorSchemeController colorSchemeController;

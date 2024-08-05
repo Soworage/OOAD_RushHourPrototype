@@ -1,5 +1,8 @@
 package application.model;
 
+
+/* Hauptverantwortlicher: Alex Mihel */
+
 public class PINManager {
 
     public boolean userEnterPIN(String enteredPIN) {

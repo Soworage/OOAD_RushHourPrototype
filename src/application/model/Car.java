@@ -2,6 +2,8 @@ package application.model;
 
 import javafx.scene.paint.Color;
 
+/* Hauptverantwortlicher: Erik Witte */
+/* Mitwirkend: Alex Becker, Alex Mihel*/
 public class Car implements Cloneable {
 
     private final Color carColor;

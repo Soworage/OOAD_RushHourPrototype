@@ -2,6 +2,8 @@ package application.controller;
 
 import application.model.PINManager;
 
+/* Hauptverantwortlicher: Alex Becker */
+
 public class ResetController {
 
     private final PINManager pinManager;

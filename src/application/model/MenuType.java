@@ -1,5 +1,8 @@
 package application.model;
 
+
+/* Hauptverantwortlicher: Alex Becker */
+
 public enum MenuType {
     MAIN_MENU,
     GAME_MENU,

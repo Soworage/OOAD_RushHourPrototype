@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 /* Hauptverantwortlicher: Matthias Henzel */
+/* Mitwirkend: Alex Becker, Alex Mihel */
 public class DifficultySelectView implements InitializableController {
 
     private DifficultySelectController difficultySelectController;

@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/* Hauptverantwortlicher: Erik Witte */
+
 public class EasyBoardCreator implements BoardCreatorInterface {
     private final List<Board> boards;
     private final Map<Integer, HighscoreTable> highscoreTables;

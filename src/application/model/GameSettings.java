@@ -1,5 +1,7 @@
 package application.model;
 
+/* Hauptverantwortlicher: Alex Becker */
+
 public class GameSettings {
 
     private static GameSettings instance;
