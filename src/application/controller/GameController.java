@@ -56,7 +56,7 @@ public class GameController implements CarObserver {
         board.makeReadyForUse();
         statistic.setSelectedBoard(board);
 
-        secondsCounter = new Timeline(new KeyFrame(Duration.seconds(1), _ -> updateTimer()));
+        secondsCounter = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));
         secondsCounter.setCycleCount(Timeline.INDEFINITE);
         secondsCounter.play();
 
@@ -108,11 +108,10 @@ public class GameController implements CarObserver {
                 Car car = board.getCarAt(row, col);
                 if (car != null) {
                     rectangle.setFill(car.getCarColor());
-                    carRectangleMap.computeIfAbsent(car, _ -> new ArrayList<>()).add(rectangle);
+                    carRectangleMap.computeIfAbsent(car, event -> new ArrayList<>()).add(rectangle);
                 }
 
                 rectangle.setStroke(Color.BLACK);
-
                 registerEvents(rectangle, col, row);
 
                 // Use the GameView method to add the rectangle to the grid
@@ -165,7 +164,7 @@ public class GameController implements CarObserver {
     }
 
     private void registerEvents(Rectangle rectangle, int col, int row) {
-        rectangle.setOnMouseClicked(_ -> handleRectangleClick(col, row));
+        rectangle.setOnMouseClicked(event -> handleRectangleClick(col, row));
         rectangle.setOnDragDetected(mouseEvent -> dragDetected(mouseEvent, col, row, rectangle));
         rectangle.setOnDragDone(this::dragEnded);
         rectangle.setOnDragOver(this::handleDragOver);

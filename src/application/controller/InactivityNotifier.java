@@ -32,7 +32,7 @@ public class InactivityNotifier {
     }
 
     private void initializeTimer() {
-        inactivityTimer = new Timeline(new KeyFrame(Duration.seconds(1), _ -> updateInactivity()));
+        inactivityTimer = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateInactivity()));
         inactivityTimer.setCycleCount(Timeline.INDEFINITE);
         System.out.println("Inactivity timer initialized.");
     }

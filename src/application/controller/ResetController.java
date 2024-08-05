@@ -19,7 +19,7 @@ public class ResetController {
             coordinator.showMainMenu();
         } else {
             System.out.println("Invalid PIN entered");
-            // Optionally, provide feedback to the user
+            coordinator.showMainMenu();
         }
     }
 
