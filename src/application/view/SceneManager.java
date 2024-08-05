@@ -9,20 +9,42 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/* Hauptverantwortlicher: Matthias Henzel */
+/**
+ * Verwaltet das Wechseln zwischen verschiedenen Szenen (Ansichten) innerhalb der Anwendung.
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Matthias Henzel</li>
+ * </ul>
+ */
 public class SceneManager {
 
     private final Stage primaryStage;
     private InitializableController currentController;
 
+    /**
+     * Konstruktor für die SceneManager-Klasse.
+     *
+     * @param primaryStage Die Hauptbühne (Stage), auf der die Szenen angezeigt werden.
+     */
     public SceneManager(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Setzt den aktuellen Controller, der die Logik für die Szene bereitstellt.
+     *
+     * @param controller Der Controller, der für die aktuelle Szene zuständig ist.
+     */
     public void setController(InitializableController controller) {
         this.currentController = controller;
     }
 
+    /**
+     * Zeigt das Menü entsprechend dem angegebenen Menütyp an.
+     * Lädt die entsprechende FXML-Datei und setzt die Szene der Hauptbühne.
+     *
+     * @param menuType Der Typ des Menüs, das angezeigt werden soll.
+     */
     public void showMenu(MenuType menuType) {
         String fxmlFile = switch (menuType) {
             case MAIN_MENU -> "mainMenu.fxml";
@@ -37,14 +59,14 @@ public class SceneManager {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            loader.setController(currentController); // Correctly set the controller here
-            Parent root = loader.load(); // Load the FXML after setting the controller
+            loader.setController(currentController); // Setzt den Controller für die FXML-Datei
+            Parent root = loader.load(); // Lädt die FXML-Datei
             Scene scene = new Scene(root);
 
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            primaryStage.setScene(scene); // Setzt die neue Szene auf die Hauptbühne
+            primaryStage.show(); // Zeigt die Hauptbühne an
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Protokolliert Fehler beim Laden der FXML-Datei
         }
     }
 }
