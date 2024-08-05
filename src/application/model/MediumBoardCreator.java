@@ -7,29 +7,53 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/* Hauptverantwortlicher: Erik Witte */
-
+/**
+ * Erzeugt und verwaltet Boards mit mittlerem Schwierigkeitsgrad.
+ * Implementiert das `BoardCreatorInterface` zur Erstellung von Boards und Highscore-Tabellen.
+ * <p>Hauptverantwortlicher:</p>
+ * <ul>
+ *     <li>Erik Witte</li>
+ * </ul>
+ */
 public class MediumBoardCreator implements BoardCreatorInterface {
     private final List<Board> boards;
     private final Map<Integer, HighscoreTable> highscoreTables;
 
+    /**
+     * Konstruktor für den MediumBoardCreator.
+     * Initialisiert die Liste der Boards und Highscore-Tabellen und füllt sie mit Daten.
+     */
     public MediumBoardCreator() {
         boards = new ArrayList<>();
         highscoreTables = new HashMap<>();
         populateBoards();
     }
 
+    /**
+     * Gibt ein Board zurück.
+     * <p>Für das finale Produkt ist ein Zufallszahlengenerator vorgesehen.</p>
+     *
+     * @return Ein Klon des ersten Boards in der Liste.
+     */
     @Override
     public Board getBoard() {
-        // impelemtend random number generator for finished product
-        return boards.getFirst().clone();
+        return boards.get(0).clone();
     }
 
+    /**
+     * Gibt die Highscore-Tabelle für ein bestimmtes Board-ID zurück.
+     *
+     * @param boardId Die ID des Boards, für das die Highscore-Tabelle abgerufen werden soll.
+     * @return Die Highscore-Tabelle für das angegebene Board.
+     */
     @Override
     public HighscoreTable getHighscoreTable(int boardId) {
         return highscoreTables.get(boardId);
     }
 
+    /**
+     * Füllt die Boards mit Car-Objekten und initialisiert die Highscore-Tabellen.
+     */
     private void populateBoards() {
         List<Car> cars = List.of(
                 new Car.Builder()
