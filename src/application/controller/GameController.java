@@ -28,6 +28,12 @@ import java.util.Map;
 
 /* Hauptverantwortlicher: Alex Becker */
 /* Mitwirkend: Matthias Henzel */
+
+/**
+ * Die Klasse GameController steuert die Logik und Interaktion innerhalb des Spiels.
+ * Sie ist verantwortlich für die Verwaltung des Spielbretts, die Aktualisierung der
+ * Spielstatistiken und die Handhabung von Drag-and-Drop-Ereignissen zum Verschieben von Autos.
+ */
 public class GameController implements CarObserver {
 
     private static final int GRID_SIZE = 6;
@@ -45,6 +51,15 @@ public class GameController implements CarObserver {
     private List<Rectangle> selectedRectangleList = new ArrayList<>();
     private Timeline secondsCounter;
 
+    /**
+     * Konstruktor für die Klasse GameController. Initialisiert den Controller
+     * mit den erforderlichen Managern und Ansichten.
+     *
+     * @param boardManager Der BoardManager, der das Spielbrett verwaltet.
+     * @param statistic Die Benutzerstatistiken.
+     * @param coordinator Der Koordinator, der für die Steuerung der Anwendungsflüsse verantwortlich ist.
+     * @param gameView Die Ansicht, die das Spiel darstellt.
+     */
     public GameController(BoardManager boardManager, UserStatistic statistic, Coordinator coordinator, GameView gameView) {
         this.boardManager = boardManager;
         this.statistic = statistic;
@@ -52,8 +67,13 @@ public class GameController implements CarObserver {
         this.gameView = gameView;
     }
 
+    /**
+     * Initialisiert das Spiel nach der Erstellung des Controllers.
+     * Lädt das Spielbrett basierend auf dem ausgewählten Schwierigkeitsgrad und
+     * startet den Timer.
+     */
     public void postInit() {
-        Difficulty selectedDifficulty = GameSettings.getInstance().getDifficulty(); // Retrieve difficulty from GameSettings
+        Difficulty selectedDifficulty = GameSettings.getInstance().getDifficulty(); // Ruft den Schwierigkeitsgrad aus den Spiel-Einstellungen ab.
         board = boardManager.giveBoardToDifficulty(selectedDifficulty);
         board.makeReadyForUse();
         statistic.setSelectedBoard(board);
@@ -67,22 +87,31 @@ public class GameController implements CarObserver {
         populateGridPane();
     }
 
+    /**
+     * Aktualisiert den Timer und zeigt die vergangene Zeit im Spiel an.
+     */
     private void updateTimer() {
         statistic.addSeconds();
         int minutes = statistic.getSeconds() / 60;
         int seconds = statistic.getSeconds() % 60;
 
-        // Use GameView to update the timer label
+        // Verwende GameView, um das Timer-Label zu aktualisieren
         gameView.updateTimerLabel(minutes, seconds);
     }
 
+    /**
+     * Aktualisiert das Label, das die Anzahl der Züge im Spiel anzeigt.
+     */
     private void refreshMoveCountLabel() {
         int moveCount = statistic.getMoveCount();
 
-        // Use GameView to update the move count label
+        // Verwende GameView, um das Zugzähl-Label zu aktualisieren
         gameView.updateMoveCountLabel(moveCount);
     }
 
+    /**
+     * Handhabt die Rückkehr zum Hauptmenü und stoppt den Timer.
+     */
     public void handleBackToMenu() {
         if (secondsCounter != null) {
             secondsCounter.stop();
@@ -91,6 +120,11 @@ public class GameController implements CarObserver {
         coordinator.showMainMenu();
     }
 
+    /**
+     * Wird ausgelöst, wenn ein Drag-Ereignis das Ziel verlässt. Bewegt das ausgewählte Auto auf dem Spielbrett.
+     *
+     * @param event Das Drag-Ereignis, das das Ziel verlässt.
+     */
     public void handleDragExited(DragEvent event) {
         int targetRow = GridPane.getRowIndex(selectedRectangleList.getFirst());
         int targetCol = GridPane.getColumnIndex(selectedRectangleList.getFirst());
@@ -102,6 +136,10 @@ public class GameController implements CarObserver {
         event.consume();
     }
 
+    /**
+     * Füllt das GridPane mit Rechtecken, die das Spielbrett darstellen,
+     * und registriert die entsprechenden Ereignisse für jedes Rechteck.
+     */
     private void populateGridPane() {
         for (int row = 0; row < GRID_SIZE; row++) {
             for (int col = 0; col < GRID_SIZE; col++) {
@@ -117,22 +155,37 @@ public class GameController implements CarObserver {
                 rectangle.setStroke(Color.BLACK);
                 registerEvents(rectangle, col, row);
 
-                // Use the GameView method to add the rectangle to the grid
+                // Verwende die GameView-Methode, um das Rechteck dem Raster hinzuzufügen
                 gameView.addRectangleToGrid(rectangle, col, row);
             }
         }
     }
 
+    /**
+     * Handhabt das Klicken auf ein Rechteck im Spielbrett.
+     *
+     * @param col Die Spalte des geklickten Rechtecks.
+     * @param row Die Zeile des geklickten Rechtecks.
+     */
     private void handleRectangleClick(int col, int row) {
         coordinator.getInactivityNotifier().startTimer();
         if (selectedCar != null) {
             Car car = board.getCarAt(row, col);
             System.out.println(carRectangleMap.get(car).size());
         }
-        System.out.println("Rectangle clicked at: Column " + col + ", Row " + row);
+        System.out.println("Rechteck angeklickt bei: Spalte " + col + ", Zeile " + row);
         board.debugFunction();
     }
 
+    /**
+     * Wird ausgelöst, wenn ein Drag-Ereignis erkannt wird.
+     * Initialisiert den Drag-and-Drop-Vorgang für ein Auto.
+     *
+     * @param event Das Mausereignis, das den Drag-and-Drop-Vorgang auslöst.
+     * @param col Die Spalte des Rechtecks, das gezogen wird.
+     * @param row Die Zeile des Rechtecks, das gezogen wird.
+     * @param rectangle Das Rechteck, das gezogen wird.
+     */
     private void dragDetected(MouseEvent event, int col, int row, Rectangle rectangle) {
         coordinator.getInactivityNotifier().startTimer();
         if (board.getCarAt(row, col) != null) {
@@ -147,11 +200,23 @@ public class GameController implements CarObserver {
         }
     }
 
+    /**
+     * Handhabt das DragOver-Ereignis, um zu bestimmen, ob ein Element über
+     * ein Ziel gezogen werden kann.
+     *
+     * @param event Das DragOver-Ereignis.
+     */
     private void handleDragOver(DragEvent event) {
         event.acceptTransferModes(TransferMode.MOVE);
         event.consume();
     }
 
+    /**
+     * Wird ausgelöst, wenn ein Drag-and-Drop-Ereignis ein Ziel betritt.
+     * Bewegt das Auto zu der neuen Position, wenn der Zug gültig ist.
+     *
+     * @param event Das DragEntered-Ereignis.
+     */
     private void handleDragEntered(DragEvent event) {
         if (event.getGestureSource() != event.getTarget() &&
                 event.getDragboard().hasString()) {
@@ -166,6 +231,13 @@ public class GameController implements CarObserver {
         event.consume();
     }
 
+    /**
+     * Registriert die Ereignisse für ein Rechteck im GridPane.
+     *
+     * @param rectangle Das Rechteck, für das Ereignisse registriert werden sollen.
+     * @param col Die Spalte des Rechtecks im Raster.
+     * @param row Die Zeile des Rechtecks im Raster.
+     */
     private void registerEvents(Rectangle rectangle, int col, int row) {
         rectangle.setOnMouseClicked(event -> handleRectangleClick(col, row));
         rectangle.setOnDragDetected(mouseEvent -> dragDetected(mouseEvent, col, row, rectangle));
@@ -175,6 +247,13 @@ public class GameController implements CarObserver {
         rectangle.setOnDragDropped(this::handleDragDropped);
     }
 
+    /**
+     * Überprüft, ob der Zug auf dem Spielfeld gültig ist.
+     *
+     * @param newRow Die neue Zeile, in die das Auto bewegt werden soll.
+     * @param newCol Die neue Spalte, in die das Auto bewegt werden soll.
+     * @return true, wenn der Zug gültig ist; andernfalls false.
+     */
     private boolean isMoveOnBoardLegit(int newRow, int newCol) {
         if (!isDirectionCorrect(newRow, newCol)) {
             return false;
@@ -192,6 +271,13 @@ public class GameController implements CarObserver {
 
     }
 
+    /**
+     * Überprüft, ob die Richtung des Zuges korrekt ist.
+     *
+     * @param newRow Die neue Zeile, in die das Auto bewegt werden soll.
+     * @param newCol Die neue Spalte, in die das Auto bewegt werden soll.
+     * @return true, wenn die Richtung korrekt ist; andernfalls false.
+     */
     private boolean isDirectionCorrect(int newRow, int newCol) {
         Direction direction = selectedCar.getDirection();
         if (direction == Direction.HORIZONTAL) {
@@ -202,6 +288,13 @@ public class GameController implements CarObserver {
         return false;
     }
 
+    /**
+     * Überprüft, ob sich das Auto innerhalb der Grenzen des Spielfeldes befindet.
+     *
+     * @param newRow Die neue Zeile, in die das Auto bewegt werden soll.
+     * @param newCol Die neue Spalte, in die das Auto bewegt werden soll.
+     * @return true, wenn sich das Auto innerhalb der Grenzen befindet; andernfalls false.
+     */
     private boolean isWithinBoardBorders(int newRow, int newCol) {
         for (int i = 0; i < selectedRectangleList.size(); i++) {
             int[] position = calculatePosition(newRow, newCol, i);
@@ -213,6 +306,13 @@ public class GameController implements CarObserver {
         return true;
     }
 
+    /**
+     * Überprüft, ob die neue Position des Autos blockiert ist.
+     *
+     * @param newRow Die neue Zeile, in die das Auto bewegt werden soll.
+     * @param newCol Die neue Spalte, in die das Auto bewegt werden soll.
+     * @return true, wenn die Position blockiert ist; andernfalls false.
+     */
     private boolean isPositionBlocked(int newRow, int newCol) {
         for (int i = 0; i < selectedRectangleList.size(); i++) {
             int[] position = calculatePosition(newRow, newCol, i);
@@ -224,30 +324,47 @@ public class GameController implements CarObserver {
         return false;
     }
 
+    /**
+     * Überprüft, ob der Pfad des Autos blockiert ist.
+     *
+     * @param newRow Die neue Zeile, in die das Auto bewegt werden soll.
+     * @param newCol Die neue Spalte, in die das Auto bewegt werden soll.
+     * @return true, wenn der Pfad blockiert ist; andernfalls false.
+     */
     private boolean isPathBlocked(int newRow, int newCol) {
         int currentRow = GridPane.getRowIndex(selectedRectangle);
         int currentCol = GridPane.getColumnIndex(selectedRectangle);
 
         int selectedIndex = selectedRectangleList.indexOf(selectedRectangle);
 
-        // Check for horizontal movement
+        // Prüfen auf horizontale Bewegung
         if (selectedCar.getDirection() == Direction.HORIZONTAL) {
             int moveDistance = newCol - currentCol;
             int maxDistance = calculateMaxDistance(currentRow, currentCol, selectedIndex, moveDistance, Direction.HORIZONTAL);
 
-            // Check if the desired move is within the allowable range
+            // Überprüfen, ob der gewünschte Zug innerhalb des erlaubten Bereichs liegt
             return Math.abs(moveDistance) > maxDistance;
         } else if (selectedCar.getDirection() == Direction.VERTICAL) {
             int moveDistance = newRow - currentRow;
             int maxDistance = calculateMaxDistance(currentRow, currentCol, selectedIndex, moveDistance, Direction.VERTICAL);
 
-            // Check if the desired move is within the allowable range
+            // Überprüfen, ob der gewünschte Zug innerhalb des erlaubten Bereichs liegt
             return Math.abs(moveDistance) > maxDistance;
         }
 
         return false;
     }
 
+    /**
+     * Berechnet die maximale Entfernung, die ein Auto in eine bestimmte Richtung bewegt werden kann.
+     *
+     * @param currentRow Die aktuelle Zeile des Autos.
+     * @param currentCol Die aktuelle Spalte des Autos.
+     * @param selectedIndex Der Index des ausgewählten Rechtecks in der Liste der Rechtecke.
+     * @param moveDistance Die Entfernung, um die das Auto bewegt werden soll.
+     * @param direction Die Richtung, in die das Auto bewegt werden soll.
+     * @return Die maximale Entfernung, die das Auto in die gewünschte Richtung bewegt werden kann.
+     */
     private int calculateMaxDistance(int currentRow, int currentCol, int selectedIndex, int moveDistance, Direction direction) {
         int maxDistance = 0;
         int start, step, limit;
@@ -255,10 +372,10 @@ public class GameController implements CarObserver {
 
         if (isHorizontal) {
             start = currentCol - selectedIndex;
-            limit = currentRow; // Use currentRow as the fixed coordinate
+            limit = currentRow; // Verwende currentRow als feste Koordinate
         } else {
             start = currentRow - selectedIndex;
-            limit = currentCol; // Use currentCol as the fixed coordinate
+            limit = currentCol; // Verwende currentCol als feste Koordinate
         }
 
         step = Integer.signum(moveDistance);
@@ -275,12 +392,26 @@ public class GameController implements CarObserver {
         return maxDistance;
     }
 
-
+    /**
+     * Überprüft, ob eine bestimmte Position auf dem Spielfeld blockiert ist.
+     *
+     * @param row Die Zeile der zu überprüfenden Position.
+     * @param col Die Spalte der zu überprüfenden Position.
+     * @return true, wenn die Position blockiert ist; andernfalls false.
+     */
     private boolean isBlockedAtPosition(int row, int col) {
         Car carAtPosition = board.getCarAt(row, col);
         return carAtPosition != null && carAtPosition != selectedCar;
     }
 
+    /**
+     * Berechnet die neue Position eines Rechtecks auf dem Spielfeld.
+     *
+     * @param newRow Die neue Zeile des Rechtecks.
+     * @param newCol Die neue Spalte des Rechtecks.
+     * @param index Der Index des Rechtecks in der Liste der Rechtecke.
+     * @return Ein Array mit der neuen Zeilen- und Spaltenposition.
+     */
     private int[] calculatePosition(int newRow, int newCol, int index) {
         int rowOffset = (selectedCar.getDirection() == Direction.VERTICAL) ? index - selectedRectangleList.indexOf(selectedRectangle) : 0;
         int colOffset = (selectedCar.getDirection() == Direction.HORIZONTAL) ? index - selectedRectangleList.indexOf(selectedRectangle) : 0;
@@ -290,41 +421,53 @@ public class GameController implements CarObserver {
         return new int[]{rowPosition, colPosition};
     }
 
+    /**
+     * Bewegt die Rechtecke eines Autos zu einer neuen Position auf dem Spielfeld.
+     *
+     * @param rectangles Die Liste der Rechtecke, die das Auto darstellen.
+     * @param newRow Die neue Zeile, in die das Auto bewegt werden soll.
+     * @param newCol Die neue Spalte, in die das Auto bewegt werden soll.
+     */
     private void moveCarRectangles(List<Rectangle> rectangles, int newRow, int newCol) {
         for (Rectangle rectangle : rectangles) {
             int oldRow = GridPane.getRowIndex(rectangle);
             int oldCol = GridPane.getColumnIndex(rectangle);
-            // Remove the rectangle from its current position
+            // Entferne das Rechteck von seiner aktuellen Position
             gameView.getCarGrid().getChildren().remove(rectangle);
 
-            // Create a placeholder rectangle if needed
+            // Erstelle bei Bedarf ein Platzhalter-Rechteck
             Rectangle rectPlace = new Rectangle(RECT_SIZE, RECT_SIZE);
             registerEvents(rectPlace, oldCol, oldRow);
             rectPlace.setFill(Color.WHITE);
             rectPlace.setStroke(Color.BLACK);
 
-            // Add placeholder rectangle to the old position to keep the grid consistent
+            // Füge das Platzhalter-Rechteck an der alten Position hinzu, um das Raster konsistent zu halten
             gameView.addRectangleToGrid(rectPlace, oldCol, oldRow);
         }
 
         for (int i = 0; i < rectangles.size(); i++) {
             Rectangle rectangle = rectangles.get(i);
 
-            // Calculate new positions
+            // Berechne neue Positionen
             int rowOffset = selectedCar.getDirection() == Direction.VERTICAL ? i - rectangles.indexOf(selectedRectangle) : 0;
             int colOffset = selectedCar.getDirection() == Direction.HORIZONTAL ? i - rectangles.indexOf(selectedRectangle) : 0;
             int rowPosition = newRow + rowOffset;
             int colPosition = newCol + colOffset;
 
-            // Register events for the moved rectangle
+            // Registriere Ereignisse für das verschobene Rechteck
             registerEvents(rectangle, colPosition, rowPosition);
 
-            // Add the rectangle to the grid at its new position
+            // Füge das Rechteck im Raster an seiner neuen Position hinzu
             gameView.addRectangleToGrid(rectangle, colPosition, rowPosition);
         }
     }
 
-
+    /**
+     * Handhabt das Ereignis, wenn ein Element erfolgreich an einem Ziel abgelegt wird.
+     * Überprüft, ob das Auto erfolgreich bewegt wurde, und aktualisiert die Spielstatistiken.
+     *
+     * @param event Das DragDropped-Ereignis.
+     */
     private void handleDragDropped(DragEvent event) {
         if (event.getDragboard().hasString() && selectedRectangle != null) {
             int targetRow = GridPane.getRowIndex(selectedRectangleList.getFirst());
@@ -341,6 +484,12 @@ public class GameController implements CarObserver {
         event.consume();
     }
 
+    /**
+     * Wird ausgelöst, wenn ein Drag-and-Drop-Vorgang abgeschlossen ist.
+     * Setzt die Auswahl der Rechtecke und Autos zurück.
+     *
+     * @param event Das DragEnded-Ereignis.
+     */
     private void dragEnded(DragEvent event) {
         if (event.getTransferMode() == TransferMode.MOVE) {
             selectedRectangleList = null;
@@ -350,6 +499,12 @@ public class GameController implements CarObserver {
         event.consume();
     }
 
+    /**
+     * Überprüft die Gewinnbedingung für ein Auto.
+     * Zeigt die Statistikansicht an, wenn das rote Auto die Gewinnposition erreicht.
+     *
+     * @param car Das zu überprüfende Auto.
+     */
     private void checkWinningCondition(Car car) {
         if (isRedCar(car)) {
             int carCol = car.getYPosition();
@@ -364,10 +519,19 @@ public class GameController implements CarObserver {
         }
     }
 
+    /**
+     * Überprüft, ob ein Auto rot ist.
+     *
+     * @param car Das zu überprüfende Auto.
+     * @return true, wenn das Auto rot ist; andernfalls false.
+     */
     private boolean isRedCar(Car car) {
         return car != null && car.getCarColor().equals(Color.RED);
     }
 
+    /**
+     * Aktualisiert die Ansicht, wenn sich die Anzahl der Züge ändert.
+     */
     @Override
     public void update() {
         refreshMoveCountLabel();

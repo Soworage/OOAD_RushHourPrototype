@@ -7,19 +7,38 @@ import application.model.UserStatistic;
 import java.time.LocalDate;
 /* Hauptverantwortlicher: Alex Becker */
 /* Mitwirkend: Matthias Henzel */
+
+/**
+ * Die Klasse InputNameController ist verantwortlich für die Handhabung der Eingabe von Benutzernamen
+ * und das Speichern der Benutzerstatistiken in der Highscore-Tabelle.
+ * Sie ermöglicht auch die Navigation zurück zum Hauptmenü.
+ */
 public class InputNameController {
 
     private final UserStatistic userStatistic;
     private final Coordinator coordinator;
     private final HighscoreTable highscoreTable;
 
+    /**
+     * Konstruktor für die Klasse InputNameController.
+     * Initialisiert den Controller mit den erforderlichen Benutzerstatistiken und der Highscore-Tabelle.
+     *
+     * @param userStatistic Die Benutzerstatistiken.
+     * @param coordinator   Der Koordinator, der für die Steuerung der Anwendungsflüsse verantwortlich ist.
+     * @param highscoreTable Die Highscore-Tabelle, in der die Einträge gespeichert werden.
+     */
     public InputNameController(UserStatistic userStatistic, Coordinator coordinator, HighscoreTable highscoreTable) {
         this.userStatistic = userStatistic;
         this.coordinator = coordinator;
         this.highscoreTable = highscoreTable;
     }
 
-
+    /**
+     * Speichert den eingegebenen Namen des Benutzers und erstellt einen neuen Highscore-Eintrag
+     * basierend auf den aktuellen Benutzerstatistiken. Zeigt anschließend das Highscore-Menü an.
+     *
+     * @param name Der eingegebene Name des Benutzers.
+     */
     public void saveName(String name) {
         userStatistic.setName(name);
         LocalDate now = LocalDate.now();
@@ -33,6 +52,9 @@ public class InputNameController {
         coordinator.showHighScoreMenu();
     }
 
+    /**
+     * Kehrt zum Hauptmenü zurück.
+     */
     public void goBackToMainMenu() {
         coordinator.showMainMenu();
     }
